@@ -1,0 +1,133 @@
+// !$*UTF8*$!
+{
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 344A48A80F77CEE600A7E838 /* Pyview */;
+		activeTarget = 8D1107260486CEB800E47090 /* Pyview */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* Pyview */,
+		);
+		codeSenseManager = 344A48BA0F77CEFB00A7E838 /* Code sense */;
+		executables = (
+			344A48A80F77CEE600A7E838 /* Pyview */,
+		);
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 259945232;
+			PBXWorkspaceStateSaveDate = 259945232;
+		};
+		perUserProjectItems = {
+			343445100F7E731600A6ACE7 /* PBXTextBookmark */ = 343445100F7E731600A6ACE7 /* PBXTextBookmark */;
+			344A49110F78259900A7E838 = 344A49110F78259900A7E838 /* PBXTextBookmark */;
+			344A49120F78259900A7E838 = 344A49120F78259900A7E838 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 344A48B90F77CEFB00A7E838 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1398, 800}}";
+			sepNavSelRange = "{1554, 0}";
+			sepNavVisRange = "{1315, 492}";
+		};
+	};
+	343445100F7E731600A6ACE7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 344A48EF0F78068100A7E838 /* PyviewController.py */;
+		name = "PyviewController.py: 10";
+		rLen = 0;
+		rLoc = 163;
+		rType = 0;
+		vrLen = 894;
+		vrLoc = 0;
+	};
+	344A48A80F77CEE600A7E838 /* Pyview */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = Pyview;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	344A48B90F77CEFB00A7E838 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	344A48BA0F77CEFB00A7E838 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	344A48EF0F78068100A7E838 /* PyviewController.py */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {935, 585}}";
+			sepNavSelRange = "{163, 0}";
+			sepNavVisRange = "{0, 894}";
+			sepNavWindowFrame = "{{15, 60}, {994, 713}}";
+		};
+	};
+	344A49110F78259900A7E838 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 344A48EF0F78068100A7E838 /* PyviewController.py */;
+		name = "PyviewController.py: 23";
+		rLen = 0;
+		rLoc = 587;
+		rType = 0;
+		vrLen = 688;
+		vrLoc = 0;
+	};
+	344A49120F78259900A7E838 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 344A48EF0F78068100A7E838 /* PyviewController.py */;
+		name = "PyviewController.py: 10";
+		rLen = 0;
+		rLoc = 163;
+		rType = 0;
+		vrLen = 894;
+		vrLoc = 0;
+	};
+	77631A3E0C0748CF005415CB /* main.py */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {935, 585}}";
+			sepNavSelRange = "{377, 0}";
+			sepNavVisRange = "{0, 429}";
+			sepNavWindowFrame = "{{15, 60}, {994, 713}}";
+		};
+	};
+	7790198E0C07548A00326F66 /* PyviewAppDelegate.py */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {935, 585}}";
+			sepNavSelRange = "{640, 0}";
+			sepNavVisRange = "{0, 953}";
+			sepNavWindowFrame = "{{15, 60}, {994, 713}}";
+		};
+	};
+	8D1107260486CEB800E47090 /* Pyview */ = {
+		activeExec = 0;
+		executables = (
+			344A48A80F77CEE600A7E838 /* Pyview */,
+		);
+	};
+}

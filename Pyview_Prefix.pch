@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Pyview' target in the 'Pyview' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
