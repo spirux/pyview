@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3401922D0F7FB30300D7D3FA /* exificon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3401922C0F7FB30300D7D3FA /* exificon.icns */; };
 		343445200F7E8AF700A6ACE7 /* ImageProxy.py in Resources */ = {isa = PBXBuildFile; fileRef = 3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */; };
-		344A48D80F77E00600A7E838 /* DSC00442x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 344A48D70F77E00600A7E838 /* DSC00442x.jpg */; };
 		344A48F00F78068100A7E838 /* PyviewController.py in Resources */ = {isa = PBXBuildFile; fileRef = 344A48EF0F78068100A7E838 /* PyviewController.py */; };
 		77631A270C06C501005415CB /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77631A260C06C501005415CB /* Python.framework */; };
 		77631A3F0C0748CF005415CB /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = 77631A3E0C0748CF005415CB /* main.py */; };
@@ -30,7 +29,6 @@
 		32CA4F630368D1EE00C91783 /* Pyview_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pyview_Prefix.pch; sourceTree = "<group>"; };
 		3401922C0F7FB30300D7D3FA /* exificon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = exificon.icns; sourceTree = "<group>"; };
 		3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ImageProxy.py; sourceTree = "<group>"; usesTabs = 0; };
-		344A48D70F77E00600A7E838 /* DSC00442x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DSC00442x.jpg; sourceTree = "<group>"; };
 		344A48EF0F78068100A7E838 /* PyviewController.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PyviewController.py; sourceTree = "<group>"; usesTabs = 0; };
 		77631A260C06C501005415CB /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = /System/Library/Frameworks/Python.framework; sourceTree = "<absolute>"; };
 		77631A3E0C0748CF005415CB /* main.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				3401922C0F7FB30300D7D3FA /* exificon.icns */,
-				344A48D70F77E00600A7E838 /* DSC00442x.jpg */,
 				77C8C1F70C07829500965286 /* MainMenu.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -180,7 +177,6 @@
 				77631A3F0C0748CF005415CB /* main.py in Resources */,
 				7790198F0C07548A00326F66 /* PyviewAppDelegate.py in Resources */,
 				77C8C1F90C07829500965286 /* MainMenu.xib in Resources */,
-				344A48D80F77E00600A7E838 /* DSC00442x.jpg in Resources */,
 				344A48F00F78068100A7E838 /* PyviewController.py in Resources */,
 				343445200F7E8AF700A6ACE7 /* ImageProxy.py in Resources */,
 				3401922D0F7FB30300D7D3FA /* exificon.icns in Resources */,

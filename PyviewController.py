@@ -16,7 +16,6 @@ udir = lambda x: unicode(dir(x))
 class PyviewController(NSObject):
     biglabel = objc.IBOutlet()
     textField = objc.IBOutlet()
-    textlabel = objc.IBOutlet()
     imageView = objc.IBOutlet()
     
     @objc.IBAction
@@ -31,12 +30,12 @@ class PyviewController(NSObject):
             self.show_exif(filename)
         except Exception, ex:
             print ex
-        self.textlabel.setStringValue_(u"-" + basename(filename) + u"-")
+        #self.textlabel.setStringValue_(u"-" + basename(filename) + u"-")
         NSLog(u"Changed to filename: %s" % filename)
     
     def show_exif(self, filename):
         ip = ImageProxy.ImageProxy(filename)
-        NSLog(udir(self.biglabel))
+        #NSLog(udir(self.biglabel))
         #self.biglabel.selectAll_(self)
         tstorage = self.biglabel#.textStorage
         tstorage.setString_(unicode(ip.human_readable_tags()))

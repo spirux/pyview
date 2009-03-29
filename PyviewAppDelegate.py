@@ -12,6 +12,10 @@ from AppKit import *
 class PyviewAppDelegate(NSObject):
     def applicationDidFinishLaunching_(self, sender):
         NSLog("Application did finish launching.")
+        
+    def applicationOpenFile(self, filename):
+        NSLog("Application did finish launching.")
+        NSLog(filename)
     
     def applicationWillTerminate_(self,sender):
         NSLog("Application will terminate.")
