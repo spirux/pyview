@@ -8,16 +8,22 @@
 
 from Foundation import *
 from AppKit import *
+import PyviewController
 
 class PyviewAppDelegate(NSObject):
     def applicationDidFinishLaunching_(self, sender):
         NSLog("Application did finish launching.")
         
-    def applicationOpenFile(self, filename):
-        NSLog("Application did finish launching.")
-        NSLog(filename)
+    def application_openFiles_(self, app, filenames):
+        NSLog("Application Open Files.")
+        for file in filenames:
+            print file
+            PyviewController.PVCInstance.load_image(file)
+#        print type(app.mainWindow().delegate())
+#        print dir(app.mainWindow().delegate())
+        app.replyToOpenOrPrint_(NSApplicationDelegateReplySuccess)
     
-    def applicationWillTerminate_(self,sender):
+    def applicationWillTerminate_(self, sender):
         NSLog("Application will terminate.")
 
     def applicationSupportFolder(self):
@@ -30,3 +36,6 @@ class PyviewAppDelegate(NSObject):
             
     def pathForFilename(self,filename):
         return self.applicationSupportFolder().stringByAppendingPathComponent_(filename)
+        
+    def applicationShouldTerminateAfterLastWindowClosed_(self, sender):
+        return True

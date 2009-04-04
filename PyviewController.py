@@ -13,6 +13,8 @@ from os.path import basename
 import ImageProxy
 udir = lambda x: unicode(dir(x))
 
+PVCInstance  = None;
+
 class PyviewController(NSObject):
     biglabel = objc.IBOutlet()
     textField = objc.IBOutlet()
@@ -21,6 +23,15 @@ class PyviewController(NSObject):
     @objc.IBAction
     def echo_(self,sender):
         self.change_image(self.textField.stringValue())
+        
+    def awakeFromNib(self):
+        global PVCInstance
+        assert not PVCInstance
+        PVCInstance = self
+        NSLog("I'm awake")
+        
+    def load_image(self, filename):
+        return self.change_image(filename)
         
     def change_image(self, filename):
         try:
