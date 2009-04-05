@@ -14,8 +14,8 @@
 			344A48A80F77CEE600A7E838 /* Pyview */,
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 260500502;
-			PBXWorkspaceStateSaveDate = 260500502;
+			PBXPerProjectTemplateStateSaveDate = 260618571;
+			PBXWorkspaceStateSaveDate = 260618571;
 		};
 		sourceControlManager = 344A48B90F77CEFB00A7E838 /* Source Control */;
 		userBuildSettings = {
@@ -87,26 +87,26 @@
 	};
 	344A48EF0F78068100A7E838 /* PyviewController.py */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {935, 784}}";
-			sepNavSelRange = "{276, 16}";
-			sepNavVisRange = "{164, 1192}";
+			sepNavIntBoundsRect = "{{0, 0}, {935, 928}}";
+			sepNavSelRange = "{738, 0}";
+			sepNavVisRange = "{137, 996}";
 			sepNavWindowFrame = "{{15, 65}, {994, 713}}";
 		};
 	};
 	77631A3E0C0748CF005415CB /* main.py */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {935, 585}}";
-			sepNavSelRange = "{440, 0}";
-			sepNavVisRange = "{0, 528}";
+			sepNavSelRange = "{205, 0}";
+			sepNavVisRange = "{0, 429}";
 			sepNavWindowFrame = "{{15, 60}, {994, 713}}";
 		};
 	};
 	7790198E0C07548A00326F66 /* PyviewAppDelegate.py */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {935, 585}}";
-			sepNavSelRange = "{428, 0}";
-			sepNavVisRange = "{0, 1216}";
-			sepNavWindowFrame = "{{1, 65}, {994, 713}}";
+			sepNavIntBoundsRect = "{{0, 0}, {935, 672}}";
+			sepNavSelRange = "{560, 0}";
+			sepNavVisRange = "{132, 1084}";
+			sepNavWindowFrame = "{{-1, 0}, {994, 578}}";
 		};
 	};
 	8D1107260486CEB800E47090 /* Pyview */ = {

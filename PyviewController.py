@@ -23,15 +23,19 @@ class PyviewController(NSObject):
     @objc.IBAction
     def echo_(self,sender):
         self.change_image(self.textField.stringValue())
-        
+                
     def awakeFromNib(self):
+        """
+        Called when object is instantiated from NIB.
+        Make instance globally available through PyviewController.PVCInstance. 
+        """
         global PVCInstance
         assert not PVCInstance
         PVCInstance = self
         NSLog("I'm awake")
         
-    def load_image(self, filename):
-        return self.change_image(filename)
+    def load_images(self, filenames):
+        return self.change_image(filenames[0])
         
     def change_image(self, filename):
         try:
@@ -39,6 +43,7 @@ class PyviewController(NSObject):
 			#image.initWithData()
             self.imageView.setImage_(image)
             self.show_exif(filename)
+            self.textField.setStringValue_(filename)
         except Exception, ex:
             print ex
         #self.textlabel.setStringValue_(u"-" + basename(filename) + u"-")
