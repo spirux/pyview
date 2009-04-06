@@ -9,6 +9,7 @@
 
 import EXIF
 import datetime
+from os.path import basename
 
 def parse_exif_time(timestring, format = '%Y:%m:%d %H:%M:%S'):
     return datetime.datetime.strptime(timestring, format)
@@ -21,7 +22,10 @@ class ImageProxy(object):
         #Initialize members
         self.tags = EXIF.process_file(file, **named)
         self.dt_original = None
-        self.original_fname = fname
+        self.originalFileName = fname
+        
+        #some attributes for the outline view
+        self.name = basename(fname)
     
     @property
     def DateTimeOriginal(self):
@@ -29,6 +33,8 @@ class ImageProxy(object):
             exiftime = self.tags['EXIF DateTimeOriginal'].values
             self.dt_original = parse_exif_time(exiftime)
         return self.dt_original
+        
+    date = DateTimeOriginal
         
     def human_readable_tags(self):
         lines = []
