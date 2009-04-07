@@ -28,9 +28,4 @@ class OpaqueView(NSView):
 		NSColor.blackColor().set()
 		#fill with black
 		NSRectFill(rect)
-		pass
-
-	def fill(self):
-		pass
-		
 	
