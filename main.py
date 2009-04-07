@@ -16,6 +16,7 @@ from PyObjCTools import AppHelper
 import PyviewAppDelegate
 import PyviewController
 import OutlineViewDS
+import OpaqueView
 
 # pass control to AppKit
 AppHelper.runEventLoop()

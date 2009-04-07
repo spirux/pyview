@@ -229,7 +229,7 @@
 				<key>PBXProjectModuleGUID</key>
 				<string>34AFCC850F88B97500A6CEEA</string>
 				<key>PBXProjectModuleLabel</key>
-				<string>OutlineViewDS.py</string>
+				<string>PyviewController.py</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
 				<dict>
 					<key>Split0</key>
@@ -237,29 +237,28 @@
 						<key>PBXProjectModuleGUID</key>
 						<string>34AFCCA30F88E0E300A6CEEA</string>
 						<key>PBXProjectModuleLabel</key>
-						<string>OutlineViewDS.py</string>
+						<string>PyviewController.py</string>
 						<key>_historyCapacity</key>
 						<integer>20</integer>
 						<key>bookmark</key>
-						<string>34D8AB0D0F8A8F5900A9E371</string>
+						<string>341F88070F8BA1E70052AA18</string>
 						<key>history</key>
 						<array>
 							<string>34AFCD0F0F89082A00A6CEEA</string>
 							<string>34D8AAFF0F8A8F0C00A9E371</string>
-							<string>34D8AB000F8A8F0C00A9E371</string>
 							<string>34D8AB080F8A8F3100A9E371</string>
-							<string>34D8AB090F8A8F3100A9E371</string>
-							<string>34D8AB050F8A8F0C00A9E371</string>
-						</array>
-						<key>nextStack</key>
-						<array>
-							<string>34D8AB0A0F8A8F3100A9E371</string>
-							<string>34D8AB0B0F8A8F3100A9E371</string>
+							<string>341F87FF0F8BA1E70052AA18</string>
+							<string>341F88000F8BA1E70052AA18</string>
+							<string>341F88010F8BA1E70052AA18</string>
+							<string>341F88020F8BA1E70052AA18</string>
 						</array>
 						<key>prevStack</key>
 						<array>
 							<string>34D8AB030F8A8F0C00A9E371</string>
-							<string>34D8AB040F8A8F0C00A9E371</string>
+							<string>341F88030F8BA1E70052AA18</string>
+							<string>341F88040F8BA1E70052AA18</string>
+							<string>341F88050F8BA1E70052AA18</string>
+							<string>341F88060F8BA1E70052AA18</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -354,8 +353,8 @@
 									<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 									<array>
 										<array>
-											<integer>12</integer>
-											<integer>10</integer>
+											<integer>3</integer>
+											<integer>1</integer>
 											<integer>0</integer>
 										</array>
 									</array>
@@ -525,8 +524,8 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>34D8AAC30F8A820100A9E371</string>
-				<string>34D8AAC40F8A820100A9E371</string>
+				<string>341F87AD0F8B88FB0052AA18</string>
+				<string>341F87AE0F8B88FB0052AA18</string>
 				<string>1C9437FD063B20B00039CFAC</string>
 				<string>1C9437FE063B20B00039CFAC</string>
 				<string>1C9437FF063B20B00039CFAC</string>
@@ -546,7 +545,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>260738905.69842201</real>
+	<real>260809191.249423</real>
 	<key>ToolbarDisplayMode</key>
 	<integer>1</integer>
 	<key>ToolbarIsVisible</key>
@@ -562,14 +561,14 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>1C530D57069F1CE1000CFCEE</string>
-		<string>34D8AACF0F8A820100A9E371</string>
-		<string>34D8AAD00F8A820100A9E371</string>
 		<string>1C530D60069F1CE1000CFCEE</string>
+		<string>341F88080F8BA1E70052AA18</string>
+		<string>341F88090F8BA1E70052AA18</string>
 		<string>1C530D52069F1CE1000CFCEE</string>
 		<string>1C530D54069F1CE1000CFCEE</string>
 		<string>/Users/spirux/tmp/Pyview/Pyview.xcodeproj</string>
-		<string>1C530D5B069F1CE1000CFCEE</string>
 		<string>34AFCC850F88B97500A6CEEA</string>
+		<string>1C530D5B069F1CE1000CFCEE</string>
 	</array>
 	<key>WindowString</key>
 	<string>930 358 350 420 0 0 1280 778 </string>
@@ -786,7 +785,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D52069F1CE1000CFCEE</string>
-				<string>34D8AA720F8A028200A9E371</string>
+				<string>341F87BF0F8B8BD00052AA18</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -906,13 +905,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D54069F1CE1000CFCEE</string>
-				<string>34D8AA730F8A028200A9E371</string>
+				<string>341F87B00F8B88FB0052AA18</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>34D8AA740F8A028200A9E371</string>
-				<string>34D8AA750F8A028200A9E371</string>
-				<string>34D8AA760F8A028200A9E371</string>
-				<string>34D8AA770F8A028200A9E371</string>
-				<string>34D8AA780F8A028200A9E371</string>
+				<string>341F87B10F8B88FB0052AA18</string>
+				<string>341F87B20F8B88FB0052AA18</string>
+				<string>341F87B30F8B88FB0052AA18</string>
+				<string>341F87B40F8B88FB0052AA18</string>
+				<string>341F87B50F8B88FB0052AA18</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -939,6 +938,8 @@
 							<key>Dock</key>
 							<array>
 								<dict>
+									<key>BecomeActive</key>
+									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
@@ -965,8 +966,6 @@
 							<string>212pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -1002,8 +1001,8 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D57069F1CE1000CFCEE</string>
-				<string>34D8AAC00F8A81FC00A9E371</string>
-				<string>34D8AAC10F8A81FC00A9E371</string>
+				<string>341F87C80F8B8BFD0052AA18</string>
+				<string>341F87C90F8B8BFD0052AA18</string>
 				<string>1CDD528C0622207200134675</string>
 				<string>1CD0528E0623707200166675</string>
 			</array>
@@ -1045,7 +1044,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {650, 209}}</string>
 								<key>RubberWindowFrame</key>
-								<string>622 374 650 250 0 0 1280 778 </string>
+								<string>352 273 650 250 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -1068,13 +1067,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D5B069F1CE1000CFCEE</string>
-				<string>34D8AA790F8A028200A9E371</string>
+				<string>341F87C00F8B8BD00052AA18</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>622 374 650 250 0 0 1280 778 </string>
+			<string>352 273 650 250 0 0 1280 778 </string>
 			<key>WindowToolGUID</key>
 			<string>1C530D5B069F1CE1000CFCEE</string>
 			<key>WindowToolIsVisible</key>
@@ -1455,7 +1454,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CA6456E063B45B4001379D8</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Class Browser - NSOutlineView</string>
+								<string>Class Browser - NSColor</string>
 							</dict>
 							<key>GeometryConfiguration</key>
 							<dict>
@@ -1507,7 +1506,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C530D60069F1CE1000CFCEE</string>
-				<string>34D8AA7A0F8A028200A9E371</string>
+				<string>341F87C10F8B8BD00052AA18</string>
 				<string>1CA6456E063B45B4001379D8</string>
 			</array>
 			<key>ToolbarConfiguration</key>

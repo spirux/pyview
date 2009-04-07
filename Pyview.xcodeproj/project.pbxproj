@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3401922D0F7FB30300D7D3FA /* exificon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3401922C0F7FB30300D7D3FA /* exificon.icns */; };
+		341F87B90F8B894C0052AA18 /* OpaqueView.py in Resources */ = {isa = PBXBuildFile; fileRef = 341F87B80F8B894C0052AA18 /* OpaqueView.py */; };
 		343445200F7E8AF700A6ACE7 /* ImageProxy.py in Resources */ = {isa = PBXBuildFile; fileRef = 3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */; };
 		344A48F00F78068100A7E838 /* PyviewController.py in Resources */ = {isa = PBXBuildFile; fileRef = 344A48EF0F78068100A7E838 /* PyviewController.py */; };
 		34AFCCEE0F88E70000A6CEEA /* OutlineViewDS.py in Resources */ = {isa = PBXBuildFile; fileRef = 34AFCCED0F88E70000A6CEEA /* OutlineViewDS.py */; };
@@ -29,6 +30,7 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* Pyview_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pyview_Prefix.pch; sourceTree = "<group>"; };
 		3401922C0F7FB30300D7D3FA /* exificon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = exificon.icns; sourceTree = "<group>"; };
+		341F87B80F8B894C0052AA18 /* OpaqueView.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = OpaqueView.py; sourceTree = "<group>"; };
 		3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ImageProxy.py; sourceTree = "<group>"; usesTabs = 0; };
 		344A48EF0F78068100A7E838 /* PyviewController.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PyviewController.py; sourceTree = "<group>"; usesTabs = 0; };
 		34AFCCED0F88E70000A6CEEA /* OutlineViewDS.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = OutlineViewDS.py; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				344A48EF0F78068100A7E838 /* PyviewController.py */,
 				3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */,
 				34AFCCED0F88E70000A6CEEA /* OutlineViewDS.py */,
+				341F87B80F8B894C0052AA18 /* OpaqueView.py */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				343445200F7E8AF700A6ACE7 /* ImageProxy.py in Resources */,
 				3401922D0F7FB30300D7D3FA /* exificon.icns in Resources */,
 				34AFCCEE0F88E70000A6CEEA /* OutlineViewDS.py in Resources */,
+				341F87B90F8B894C0052AA18 /* OpaqueView.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

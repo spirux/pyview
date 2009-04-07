@@ -12,6 +12,7 @@ from Foundation import *
 from os.path import basename
 from OutlineViewDS import OutlineViewDS, WrapInOutlineViewItem
 import ImageProxy
+
 udir = lambda x: unicode(dir(x))
 
 PVCInstance  = None;
@@ -62,6 +63,7 @@ class PyviewController(NSObject):
         try:
             image = AppKit.NSImage.alloc().initByReferencingFile_(filename)
 			#image.initWithData()
+            image.setBackgroundColor_(NSColor.blackColor())
             self.imageView.setImage_(image)
             
             #initialize text box with exif data
