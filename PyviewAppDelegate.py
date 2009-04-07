@@ -30,7 +30,6 @@ class PyviewAppDelegate(NSObject):
         
         if dialog.runModalForDirectory_file_(None, None) == NSOKButton:
             PyviewController.PVCInstance.load_images(dialog.filenames())
-
     
     def applicationWillTerminate_(self, sender):
         NSLog("Application will terminate.")

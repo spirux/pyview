@@ -59,7 +59,6 @@ class OutlineViewDS (NSObject):
 
 	def outlineView_shouldSelectItem_(self, view, item):
 		"Notify our master that an item was selected"
-		print "Item selected:", item.payload.name
 		if self.selection_callback:
 			self.selection_callback(item.payload)
 		return True

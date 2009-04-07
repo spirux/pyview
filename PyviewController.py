@@ -13,13 +13,10 @@ from os.path import basename
 from OutlineViewDS import OutlineViewDS, WrapInOutlineViewItem
 import ImageProxy
 
-udir = lambda x: unicode(dir(x))
-
 PVCInstance  = None;
 
 class PyviewController(NSObject):
-    biglabel = objc.IBOutlet()
-    textField = objc.IBOutlet()
+    exifLabel = objc.IBOutlet()
     imageView = objc.IBOutlet()
     outlineView = objc.IBOutlet()
                     
@@ -42,11 +39,6 @@ class PyviewController(NSObject):
         self.outlineView.setDelegate_(dataSource)
         self.outlineView.setDataSource_(dataSource)
         NSLog("I'm awake")
-    
-    @objc.IBAction
-    def echo_(self,sender):
-        self.load_images( (self.textField.stringValue(),) )
-
             
     def load_images(self, filenames):
         newitems = [WrapInOutlineViewItem(ImageProxy.ImageProxy(f)) for f in filenames]
@@ -68,10 +60,7 @@ class PyviewController(NSObject):
             
             #initialize text box with exif data
             strexif = unicode(imgProxy.human_readable_tags())
-            self.biglabel.setString_(strexif)
-            
-            #set "address" string
-            self.textField.setStringValue_(filename)
+            self.exifLabel.setString_(strexif)
         except Exception, ex:
             print ex
         NSLog(u"Changed to filename: %s" % filename)
