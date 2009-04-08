@@ -8,13 +8,13 @@
 #
 
 import EXIF
-import datetime
+from datetime import datetime
 import os
 from os.path import basename
 import stat
 
 def parse_exif_time(timestring, format = '%Y:%m:%d %H:%M:%S'):
-    return datetime.datetime.strptime(timestring, format)
+    return datetime.strptime(timestring, format)
 
 class ImageProxy(object):
     def __init__(self, fname, stop_tag = None):
@@ -30,18 +30,18 @@ class ImageProxy(object):
         self.name = basename(fname)
     
     @property
-    def DateTimeOriginal(self):
+    def dateTimeOriginal(self):
         if self.dt_original is None:
             try:
                 exiftime = self.tags['EXIF DateTimeOriginal'].values
                 self.dt_original = parse_exif_time(exiftime)
             except KeyError:
-                # fallback to file creation time
-                creation_time = os.stat(self.originalFileName)[stat.ST_CTIME]
-                self.dt_original = datetime.fromtimestamp(creation_time)
+                # fallback to file modification time
+                mod_time = os.stat(self.originalFileName)[stat.ST_MTIME]
+                self.dt_original = datetime.fromtimestamp(mod_time)
         return self.dt_original
         
-    date = DateTimeOriginal
+    date = dateTimeOriginal
         
     def human_readable_tags(self):
         lines = []
@@ -49,8 +49,21 @@ class ImageProxy(object):
             if tag not in ('JPEGThumbnail', 'TIFFThumbnail', 'EXIF MakerNote'):
                 lines.append(': '.join( (tag, str(self.tags[tag])) ))
         return '\n'.join(lines)
-        
 
+class PhotoSession(list):
+    @property
+    def startDate(self):
+        if len(self):
+            return min(self, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
+        return datetime.now()
+        
+    @property
+    def endDate(self):
+        if len(self):
+            return max(self, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
+        return datetime.now()
+
+    
 # To stop processing after a certain tag is retrieved,
 # pass the -t TAG or --stop-tag TAG argument, or as
 #    tags = EXIF.process_file(f, stop_tag='TAG')

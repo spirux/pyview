@@ -9,8 +9,8 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="371"/>
-			<integer value="513"/>
 			<integer value="29"/>
+			<integer value="514"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1844,7 +1844,7 @@ AAAAAAAAAAAAAA</bytes>
 									<double key="NSPercent">9.456522e-01</double>
 								</object>
 							</object>
-							<string key="NSFrame">{{2, -1}, {278, 380}}</string>
+							<string key="NSFrame">{{-1, -1}, {278, 380}}</string>
 							<reference key="NSSuperview" ref="614583404"/>
 							<reference key="NSNextKeyView" ref="286166337"/>
 							<int key="NSsFlags">18</int>
@@ -3492,7 +3492,7 @@ AAAAAAAAAAAAAA</bytes>
 					<reference ref="8"/>
 					<reference ref="8"/>
 					<string>{{29, -11}, {640, 508}}</string>
-					<integer value="1" id="5"/>
+					<reference ref="9"/>
 					<string>{{238, 285}, {480, 360}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3537,7 +3537,7 @@ AAAAAAAAAAAAAA</bytes>
 					<string>{{324, 218}, {276, 378}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{324, 218}, {276, 378}}</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

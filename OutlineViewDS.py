@@ -13,12 +13,13 @@ from Foundation import *
 NSStringify = lambda s: NSString.alloc().initWithString_(s) 
 
 class OutlineViewItem (NSObject):
-	def initWithPayload_(self, payload):
+	def initWithPayload_(self, payload, expandable):
 		self.payload = payload
+		self.isExpandable = expandable
 		return self
 
-def WrapInOutlineViewItem(payload):
-	return OutlineViewItem.alloc().initWithPayload_(payload)
+def WrapInOutlineViewItem(payload, expandable = False):
+	return OutlineViewItem.alloc().initWithPayload_(payload, expandable)
 
 class OutlineViewDS (NSObject):
 	"""
@@ -45,12 +46,12 @@ class OutlineViewDS (NSObject):
 	def outlineView_isItemExpandable_(self, view, item):
 		if item is None:
 			return True
-		return 'children' in dir(item)
+		return item.isExpandable
 	
 	def outlineView_child_ofItem_(self, view, index, item):
 		if item is None:
 			return self.root[index]
-		return item.children[index]
+		return item[index]
 	
 	def outlineView_objectValueForTableColumn_byItem_(self, view, tableColumn, item):
 		attrib = str(tableColumn.identifier())
