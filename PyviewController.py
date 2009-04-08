@@ -58,6 +58,7 @@ class PyviewController(NSObject):
     def change_image(self, imgProxy):
         filename = imgProxy.originalFileName
         try:
+            #TODO: load thumbnail if possible first and defer loading in thread.
             image = NSImage.alloc().initByReferencingFile_(filename)
 			#image.initWithData()
             image.setBackgroundColor_(NSColor.blackColor())

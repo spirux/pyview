@@ -8,7 +8,7 @@
 #
 
 import EXIF
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 from os.path import basename
 import stat
@@ -28,6 +28,9 @@ class ImageProxy(object):
         
         #some attributes for the outline view
         self.name = basename(fname)
+        
+    def __str__(self):
+        return  self.date.isoformat() + ": " + self.name
     
     @property
     def dateTimeOriginal(self):
@@ -51,11 +54,17 @@ class ImageProxy(object):
         return '\n'.join(lines)
 
 class PhotoSession(list):
+    """
+    A set of related images.
+    """
+    #TODO implement caching/maintenance of dates for better efficiency
     @property
     def startDate(self):
         if len(self):
             return min(self, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
         return datetime.now()
+    
+    date = startDate
         
     @property
     def endDate(self):
@@ -63,14 +72,45 @@ class PhotoSession(list):
             return max(self, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
         return datetime.now()
 
-    
-# To stop processing after a certain tag is retrieved,
-# pass the -t TAG or --stop-tag TAG argument, or as
-#    tags = EXIF.process_file(f, stop_tag='TAG')
 
-#if __name__ = '__main__':
-#    i = ImageProxy(r'/Users/spirux/Desktop/100NCD40/DSC_1820.JPG')
-#    print (i.DateTimeOriginal + datetime.timedelta(1)).isoformat()
-#    print i.DateTimeOriginal.isoformat()
-#    print i.human_readable_tags()
+def by_day(img, session, mindelta = timedelta(0)):
+    return session.date.date() == img.date.date() or (img.date - session.endDate) <= mindelta
+
+
+def cluster_images(images, belongs_rule):
+    """
+    Cluster images in photo sessions and return a list of PhotoSessions
+    """
+    all_sessions = []
+    s = None
+    #examine objects in chronological order    
+    for img in sorted(images, key = lambda a:a.date):
+        # leave existing sessions unaltered
+        if isinstance(img, PhotoSession):
+            all_sessions.append(img)
+            continue
+        
+        if s and belongs_rule(img, s):
+            s.append(img)
+        else:
+            #open a new session
+            s = PhotoSession()
+            s.append(img)
+            all_sessions.append(s)
             
+    # TODO: implement optional session merging logic
+    return all_sessions
+
+if __name__ == '__main__':
+    import sys
+    #load some images in ImageProxies
+    images = [ImageProxy(fname.strip(), stop_tag='EXIF DateTimeOriginal') for fname in sys.stdin]
+    hours5 = timedelta(0, 5*3600, 0)
+    print len(images), "read"
+    
+    sessions = cluster_images(images, lambda s,m:by_day(s,m, hours5) )
+    for ses in sessions:
+        print "---- session start ----"
+        for img in ses:
+            print img
+

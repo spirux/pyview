@@ -41,7 +41,7 @@
 		7790198E0C07548A00326F66 /* PyviewAppDelegate.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PyviewAppDelegate.py; sourceTree = "<group>"; usesTabs = 0; };
 		77C8C1F80C07829500965286 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* Pyview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pyview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* Gleam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gleam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* Pyview.app */,
+				8D1107320486CEB800E47090 /* Gleam.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,7 +157,7 @@
 			name = Pyview;
 			productInstallPath = "$(HOME)/Applications";
 			productName = Pyview;
-			productReference = 8D1107320486CEB800E47090 /* Pyview.app */;
+			productReference = 8D1107320486CEB800E47090 /* Gleam.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -240,7 +240,7 @@
 				GCC_PREFIX_HEADER = Pyview_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Pyview;
+				PRODUCT_NAME = Gleam;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -255,7 +255,7 @@
 				GCC_PREFIX_HEADER = Pyview_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Pyview;
+				PRODUCT_NAME = Gleam;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
