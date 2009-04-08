@@ -7,7 +7,7 @@
 #
 
 import objc
-import AppKit
+from AppKit import *
 from Foundation import *
 from os.path import basename
 from OutlineViewDS import OutlineViewDS, WrapInOutlineViewItem
@@ -17,6 +17,7 @@ PVCInstance  = None;
 
 class PyviewController(NSObject):
     exifLabel = objc.IBOutlet()
+    exifPanel = objc.IBOutlet()
     imageView = objc.IBOutlet()
     outlineView = objc.IBOutlet()
                     
@@ -38,6 +39,10 @@ class PyviewController(NSObject):
         dataSource.setSelectionCallback(lambda ip: self.change_image(ip))
         self.outlineView.setDelegate_(dataSource)
         self.outlineView.setDataSource_(dataSource)
+        
+        # Don't allow the exif panel to steal focus
+        self.exifPanel.setBecomesKeyOnlyIfNeeded_(True)
+        
         NSLog("I'm awake")
             
     def load_images(self, filenames):
@@ -53,7 +58,7 @@ class PyviewController(NSObject):
     def change_image(self, imgProxy):
         filename = imgProxy.originalFileName
         try:
-            image = AppKit.NSImage.alloc().initByReferencingFile_(filename)
+            image = NSImage.alloc().initByReferencingFile_(filename)
 			#image.initWithData()
             image.setBackgroundColor_(NSColor.blackColor())
             self.imageView.setImage_(image)
@@ -65,3 +70,27 @@ class PyviewController(NSObject):
             print ex
         NSLog(u"Changed to filename: %s" % filename)
 
+    @objc.IBAction
+    def menuOpen_(self, sender):
+        "Called on menu File > Open"
+        dialog = NSOpenPanel.openPanel()
+        
+        dialog.setResolvesAliases_(True)
+        dialog.setAllowsMultipleSelection_(True)
+        
+        # allow choosing both files and directories
+        dialog.setCanChooseFiles_(True)
+        dialog.setCanChooseDirectories_(True)
+        
+        #allowed file types
+        types = ('jpg', 'JPEG')
+        if dialog.runModalForDirectory_file_types_(None, None, types) == NSOKButton:
+            self.load_images(dialog.filenames())
+
+
+    @objc.IBAction
+    def toggleExifPanel_(self, sender):
+        if self.exifPanel.isVisible():
+            self.exifPanel.orderOut_(self)
+        else:
+            self.exifPanel.orderFront_(self)

@@ -18,18 +18,6 @@ class PyviewAppDelegate(NSObject):
         NSLog("Application Open Files.")
         PyviewController.PVCInstance.load_images(filenames)
         app.replyToOpenOrPrint_(NSApplicationDelegateReplySuccess)
-        
-    @objc.IBAction
-    def menuOpen_(self, sender):
-        "Called on menu File > Open"
-        dialog = NSOpenPanel.openPanel()
-        
-        # allow choosing both files and directories
-        dialog.setCanChooseFiles_(True)
-        dialog.setCanChooseDirectories_(True)
-        
-        if dialog.runModalForDirectory_file_(None, None) == NSOKButton:
-            PyviewController.PVCInstance.load_images(dialog.filenames())
     
     def applicationWillTerminate_(self, sender):
         NSLog("Application will terminate.")
