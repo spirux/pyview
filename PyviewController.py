@@ -39,6 +39,9 @@ class PyviewController(NSObject):
         dataSource.setSelectionCallback(lambda ip: self.change_image(ip))
         self.outlineView.setDelegate_(dataSource)
         self.outlineView.setDataSource_(dataSource)
+        #load our logo
+        self.logoimg = NSBundle.mainBundle().pathForResource_ofType_("exificon", "icns")
+        self.show_image_from_path(self.logoimg)
         
         # Don't allow the exif panel to steal focus
         self.exifPanel.setBecomesKeyOnlyIfNeeded_(True)
@@ -55,15 +58,15 @@ class PyviewController(NSObject):
         
         return self.change_image(newitems[0].payload)
         
+    def show_image_from_path(self, filepath):
+        url = NSURL.fileURLWithPath_(filepath)
+        self.imageView.setImageWithURL_(url)
+    
     def change_image(self, imgProxy):
         filename = imgProxy.originalFileName
         try:
-            #TODO: load thumbnail if possible first and defer loading in thread.
-            image = NSImage.alloc().initByReferencingFile_(filename)
-			#image.initWithData()
-            image.setBackgroundColor_(NSColor.blackColor())
-            self.imageView.setImage_(image)
-            
+            #show image
+            self.show_image_from_path(filename)
             #initialize text box with exif data
             strexif = unicode(imgProxy.human_readable_tags())
             self.exifLabel.setString_(strexif)

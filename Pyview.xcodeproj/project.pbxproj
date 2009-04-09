@@ -12,6 +12,8 @@
 		343445200F7E8AF700A6ACE7 /* ImageProxy.py in Resources */ = {isa = PBXBuildFile; fileRef = 3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */; };
 		344A48F00F78068100A7E838 /* PyviewController.py in Resources */ = {isa = PBXBuildFile; fileRef = 344A48EF0F78068100A7E838 /* PyviewController.py */; };
 		34AFCCEE0F88E70000A6CEEA /* OutlineViewDS.py in Resources */ = {isa = PBXBuildFile; fileRef = 34AFCCED0F88E70000A6CEEA /* OutlineViewDS.py */; };
+		34C29B970F8EA91A00CF7EA8 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C29B950F8EA91A00CF7EA8 /* Quartz.framework */; };
+		34C29B980F8EA91A00CF7EA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C29B960F8EA91A00CF7EA8 /* QuartzCore.framework */; };
 		34CED0E80F8CE573000CEF9E /* EXIF.py in Resources */ = {isa = PBXBuildFile; fileRef = 34CED0E70F8CE573000CEF9E /* EXIF.py */; };
 		77631A270C06C501005415CB /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77631A260C06C501005415CB /* Python.framework */; };
 		77631A3F0C0748CF005415CB /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = 77631A3E0C0748CF005415CB /* main.py */; };
@@ -35,6 +37,8 @@
 		3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ImageProxy.py; sourceTree = "<group>"; usesTabs = 0; };
 		344A48EF0F78068100A7E838 /* PyviewController.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PyviewController.py; sourceTree = "<group>"; usesTabs = 0; };
 		34AFCCED0F88E70000A6CEEA /* OutlineViewDS.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = OutlineViewDS.py; sourceTree = "<group>"; };
+		34C29B950F8EA91A00CF7EA8 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
+		34C29B960F8EA91A00CF7EA8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		34CED0E70F8CE573000CEF9E /* EXIF.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = EXIF.py; sourceTree = "<group>"; };
 		77631A260C06C501005415CB /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = /System/Library/Frameworks/Python.framework; sourceTree = "<absolute>"; };
 		77631A3E0C0748CF005415CB /* main.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				77631A270C06C501005415CB /* Python.framework in Frameworks */,
+				34C29B970F8EA91A00CF7EA8 /* Quartz.framework in Frameworks */,
+				34C29B980F8EA91A00CF7EA8 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +79,8 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34C29B950F8EA91A00CF7EA8 /* Quartz.framework */,
+				34C29B960F8EA91A00CF7EA8 /* QuartzCore.framework */,
 				77631A260C06C501005415CB /* Python.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);

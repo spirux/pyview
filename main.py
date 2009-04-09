@@ -18,5 +18,8 @@ import PyviewController
 import OutlineViewDS
 import OpaqueView
 
+# Verbose exception logging
+objc.setVerbose(True)
+
 # pass control to AppKit
 AppHelper.runEventLoop()

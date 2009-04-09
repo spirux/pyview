@@ -9,11 +9,12 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="371"/>
-			<integer value="29"/>
 			<integer value="514"/>
+			<integer value="29"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<string>com.apple.imagekit.ibplugin</string>
 			<string>com.apple.InterfaceBuilderKit</string>
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 		</object>
@@ -1353,52 +1354,39 @@ AAAAAAAAAAAAAA</bytes>
 											<int key="NSvFlags">274</int>
 											<object class="NSMutableArray" key="NSSubviews">
 												<bool key="EncodedWithXMLCoder">YES</bool>
-												<object class="NSImageView" id="595203454">
+												<object class="IKImageView" id="385012992">
 													<reference key="NSNextResponder" ref="734287561"/>
 													<int key="NSvFlags">274</int>
 													<object class="NSMutableSet" key="NSDragTypes">
 														<bool key="EncodedWithXMLCoder">YES</bool>
-														<object class="NSMutableArray" key="set.sortedObjects">
+														<object class="NSArray" key="set.sortedObjects">
 															<bool key="EncodedWithXMLCoder">YES</bool>
-															<string>Apple PDF pasteboard type</string>
-															<string>Apple PICT pasteboard type</string>
-															<string>Apple PNG pasteboard type</string>
 															<string>NSFilenamesPboardType</string>
-															<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
-															<string>NeXT TIFF v4.0 pasteboard type</string>
 														</object>
 													</object>
 													<string key="NSFrame">{{20, 20}, {600, 327}}</string>
 													<reference key="NSSuperview" ref="734287561"/>
+													<bool key="NSViewIsLayerTreeHost">YES</bool>
 													<object class="CISourceOverCompositing" key="NSViewCompositeFilter">
-														<object class="NSCustomResource" key="CI_inputBackgroundImage">
-															<string key="NSClassName">CIImage</string>
-															<string key="NSResourceName">NSApplicationIcon</string>
-														</object>
 														<bool key="CIEnabled">YES</bool>
 													</object>
-													<bool key="NSEnabled">YES</bool>
-													<object class="NSImageCell" key="NSCell" id="820909686">
-														<int key="NSCellFlags">67239424</int>
-														<int key="NSCellFlags2">33587200</int>
-														<object class="NSCustomResource" key="NSContents">
-															<string key="NSClassName">NSImage</string>
-															<string key="NSResourceName">exificon</string>
-														</object>
-														<object class="NSFont" key="NSSupport" id="961416180">
-															<string key="NSName">LucidaGrande</string>
-															<double key="NSSize">1.300000e+01</double>
-															<int key="NSfFlags">1044</int>
-														</object>
-														<int key="NSAlign">0</int>
-														<int key="NSScale">3</int>
-														<int key="NSStyle">0</int>
-														<bool key="NSAnimates">NO</bool>
+													<float key="zoomFactor">1.171875e-01</float>
+													<float key="rotationAngle">0.000000e+00</float>
+													<string key="currentToolMode">IKToolModeNone</string>
+													<bool key="autoresizes">YES</bool>
+													<bool key="hasHorizontalScroller">NO</bool>
+													<bool key="hasVerticalScroller">NO</bool>
+													<bool key="autohidesScrollers">NO</bool>
+													<bool key="supportsDragAndDrop">YES</bool>
+													<bool key="editable">NO</bool>
+													<bool key="doubleClickOpensImageEditPanel">YES</bool>
+													<object class="NSColor" key="backgroundColor">
+														<int key="NSColorSpace">2</int>
+														<bytes key="NSRGB">MCAwIDAAA</bytes>
 													</object>
-													<bool key="NSEditable">YES</bool>
 												</object>
 											</object>
-											<string key="NSFrame">{{1, 0}, {640, 367}}</string>
+											<string key="NSFrameSize">{640, 367}</string>
 											<reference key="NSSuperview" ref="228040771"/>
 											<string key="NSClassName">OpaqueView</string>
 										</object>
@@ -1475,7 +1463,11 @@ AAAAAAAAAAAAAA</bytes>
 																		<int key="NSCellFlags">337772096</int>
 																		<int key="NSCellFlags2">2048</int>
 																		<string key="NSContents">Hollyday in Cambodia</string>
-																		<reference key="NSSupport" ref="961416180"/>
+																		<object class="NSFont" key="NSSupport" id="961416180">
+																			<string key="NSName">LucidaGrande</string>
+																			<double key="NSSize">1.300000e+01</double>
+																			<int key="NSfFlags">1044</int>
+																		</object>
 																		<reference key="NSControlView" ref="809288042"/>
 																		<object class="NSColor" key="NSBackgroundColor" id="751955113">
 																			<int key="NSColorSpace">6</int>
@@ -2145,14 +2137,6 @@ AAAAAAAAAAAAAA</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">imageView</string>
-						<reference key="source" ref="662338854"/>
-						<reference key="destination" ref="595203454"/>
-					</object>
-					<int key="connectionID">409</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">outlineView</string>
 						<reference key="source" ref="662338854"/>
 						<reference key="destination" ref="809288042"/>
@@ -2214,6 +2198,14 @@ AAAAAAAAAAAAAA</bytes>
 						<reference key="destination" ref="31976489"/>
 					</object>
 					<int key="connectionID">531</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">imageView</string>
+						<reference key="source" ref="662338854"/>
+						<reference key="destination" ref="385012992"/>
+					</object>
+					<int key="connectionID">533</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3046,23 +3038,9 @@ AAAAAAAAAAAAAA</bytes>
 						<reference key="object" ref="734287561"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="595203454"/>
+							<reference ref="385012992"/>
 						</object>
 						<reference key="parent" ref="228040771"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">392</int>
-						<reference key="object" ref="595203454"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="820909686"/>
-						</object>
-						<reference key="parent" ref="734287561"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">393</int>
-						<reference key="object" ref="820909686"/>
-						<reference key="parent" ref="595203454"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">513</int>
@@ -3112,6 +3090,11 @@ AAAAAAAAAAAAAA</bytes>
 						<int key="objectID">523</int>
 						<reference key="object" ref="330203726"/>
 						<reference key="parent" ref="466310130"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">532</int>
+						<reference key="object" ref="385012992"/>
+						<reference key="parent" ref="734287561"/>
 					</object>
 				</object>
 			</object>
@@ -3269,12 +3252,6 @@ AAAAAAAAAAAAAA</bytes>
 					<string>371.editorWindowContentRectSynchronizationRect</string>
 					<string>372.IBPluginDependency</string>
 					<string>373.IBPluginDependency</string>
-					<string>392.IBPluginDependency</string>
-					<string>392.IBViewIntegration.shadowBlurRadius</string>
-					<string>392.IBViewIntegration.shadowColor</string>
-					<string>392.IBViewIntegration.shadowOffsetHeight</string>
-					<string>392.IBViewIntegration.shadowOffsetWidth</string>
-					<string>393.IBPluginDependency</string>
 					<string>402.IBPluginDependency</string>
 					<string>440.IBPluginDependency</string>
 					<string>441.IBPluginDependency</string>
@@ -3317,6 +3294,7 @@ AAAAAAAAAAAAAA</bytes>
 					<string>519.IBPluginDependency</string>
 					<string>520.IBPluginDependency</string>
 					<string>523.IBPluginDependency</string>
+					<string>532.IBPluginDependency</string>
 					<string>56.IBPluginDependency</string>
 					<string>56.ImportedFromIB2</string>
 					<string>57.IBEditorWindowLastContentRect</string>
@@ -3458,7 +3436,7 @@ AAAAAAAAAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{525, 802}, {197, 73}}</string>
-					<string>{{220, 735}, {414, 20}}</string>
+					<string>{{220, 735}, {410, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{74, 862}</string>
@@ -3487,20 +3465,16 @@ AAAAAAAAAAAAAA</bytes>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{29, -11}, {640, 508}}</string>
+					<string>{{87, 174}, {640, 508}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="8"/>
 					<reference ref="8"/>
-					<string>{{29, -11}, {640, 508}}</string>
+					<string>{{87, 174}, {640, 508}}</string>
 					<reference ref="9"/>
 					<string>{{238, 285}, {480, 360}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="8"/>
-					<reference ref="501861891"/>
-					<reference ref="8"/>
-					<reference ref="8"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3513,9 +3487,7 @@ AAAAAAAAAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{98, 672}, {616, 0}}</string>
+					<string>{{41, 497}, {616, 0}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3544,6 +3516,7 @@ AAAAAAAAAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.imagekit.ibplugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{171, 534}, {186, 183}}</string>
@@ -3592,7 +3565,7 @@ AAAAAAAAAAAAAA</bytes>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">531</int>
+			<int key="maxID">533</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
