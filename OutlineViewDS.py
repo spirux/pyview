@@ -12,15 +12,6 @@ from Foundation import *
 
 NSStringify = lambda s: NSString.alloc().initWithString_(s) 
 
-class OutlineViewItem (NSObject):
-	def initWithPayload_(self, payload, expandable):
-		self.payload = payload
-		self.isExpandable = expandable
-		return self
-
-def WrapInOutlineViewItem(payload, expandable = False):
-	return OutlineViewItem.alloc().initWithPayload_(payload, expandable)
-
 class OutlineViewDS (NSObject):
 	"""
 	An adaptor class that allows a python tree to be the data source of an NSOutlineView
@@ -41,7 +32,7 @@ class OutlineViewDS (NSObject):
 	def outlineView_numberOfChildrenOfItem_(self, view, item):
 		if item is None:
 			return len(self.root)
-		return len(item)
+		return len(item.images)
 			
 	def outlineView_isItemExpandable_(self, view, item):
 		if item is None:
@@ -51,15 +42,19 @@ class OutlineViewDS (NSObject):
 	def outlineView_child_ofItem_(self, view, index, item):
 		if item is None:
 			return self.root[index]
-		return item[index]
+		return item.images[index]
 	
 	def outlineView_objectValueForTableColumn_byItem_(self, view, tableColumn, item):
 		attrib = str(tableColumn.identifier())
-		value = getattr(item.payload, attrib, "n/a")
+		value = getattr(item, attrib, "n/a")
 		return NSStringify(str(value))
 
 	def outlineView_shouldSelectItem_(self, view, item):
 		"Notify our master that an item was selected"
 		if self.selection_callback:
-			self.selection_callback(item.payload)
+			self.selection_callback(item)
 		return True
+	
+	def NSOutlineViewSelectionIsChangingNotification(self, sender):
+		print "foo"
+		

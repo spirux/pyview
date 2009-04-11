@@ -13,10 +13,23 @@ import os
 from os.path import basename
 import stat
 
+# On the OS X platform, we will derive all classes from the NSObject
+# to play better with the NSOutlineView control. For anything else,
+# or when running as a standalone script, derive from "object".
+ObjectBase = object
+try:
+    from Foundation import NSObject
+    # Don't derive from NSObject when called directly
+    if __name__ != '__main__':
+        ObjectBase = NSObject
+except ImportError:
+    pass
+
 def parse_exif_time(timestring, format = '%Y:%m:%d %H:%M:%S'):
     return datetime.strptime(timestring, format)
 
-class ImageProxy(object):
+class ImageProxy(ObjectBase):
+    isExpandable = False
     def __init__(self, fname, stop_tag = None):
         named = {'details':False}
         if stop_tag: named['stop_tag'] = stop_tag
@@ -53,31 +66,61 @@ class ImageProxy(object):
                 lines.append(': '.join( (tag, str(self.tags[tag])) ))
         return '\n'.join(lines)
 
-class PhotoSession(list):
+class PhotoSession(ObjectBase):
     """
     A set of related images.
     """
+    isExpandable = True
+    def __init__(self):
+        self.images = []
+        self._name = None
+    
     #TODO implement caching/maintenance of dates for better efficiency
     @property
     def startDate(self):
-        if len(self):
-            return min(self, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
+        if len(self.images):
+            return min(self.images, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
         return datetime.now()
     
     date = startDate
-        
+    
     @property
     def endDate(self):
-        if len(self):
-            return max(self, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
+        if len(self.images):
+            return max(self.images, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
         return datetime.now()
-
+    
+    def getName(self):
+        if self._name is None:
+            return self.date.strftime("%y-%m-%d")
+        return self._name
+        
+    def setName(self, name):
+        self._name = name
+    
+    #access name as a property
+    name = property(getName, setName)
+    del setName
+    del getName
+    
+    @property
+    def originalFileName(self):
+        if self.images:
+            return self.images[0].originalFileName
+        else:
+            raise AttributeError("PhotoSession object contains no image to provide a filename")
+        
+    def append(self, image):
+        self.images.append(image)
+    
+    def remove(self, image):
+        self.images.remove(image)
 
 def by_day(img, session, mindelta = timedelta(0)):
     return session.date.date() == img.date.date() or (img.date - session.endDate) <= mindelta
 
 
-def cluster_images(images, belongs_rule):
+def cluster_images(images, belongs_rule, sessionFactory = PhotoSession):
     """
     Cluster images in photo sessions and return a list of PhotoSessions
     """
@@ -94,7 +137,7 @@ def cluster_images(images, belongs_rule):
             s.append(img)
         else:
             #open a new session
-            s = PhotoSession()
+            s = sessionFactory()
             s.append(img)
             all_sessions.append(s)
             
@@ -111,6 +154,6 @@ if __name__ == '__main__':
     sessions = cluster_images(images, lambda s,m:by_day(s,m, hours5) )
     for ses in sessions:
         print "---- session start ----"
-        for img in ses:
+        for img in ses.images:
             print img
 
