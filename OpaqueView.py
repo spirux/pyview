@@ -19,9 +19,6 @@ class OpaqueView(NSView):
 	def isOpaque(self):
 		return True
 	
-	def awakeFromNib(self):
-		print "Hello world from OpaqueView"
-
 	def drawRect_(self, rect):
 		# drawing a full black rectangle
 		# set current drawing color

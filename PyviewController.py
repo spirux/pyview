@@ -23,9 +23,6 @@ class PyviewController(NSObject):
     outlineView = objc.IBOutlet()
     dataSource = objc.IBOutlet()
     
-    def __init__(self):
-        self.whatever = objc.IBOutlet()
-                    
     def awakeFromNib(self):
         """
         Called when object is instantiated from NIB.
@@ -46,7 +43,9 @@ class PyviewController(NSObject):
         self.show_image_from_path(self.logoimg)
         
         # Don't allow the exif panel to steal focus
-        self.exifPanel.setBecomesKeyOnlyIfNeeded_(True)        
+        self.exifPanel.setBecomesKeyOnlyIfNeeded_(True)
+        # set-up drag & drop
+        self.outlineView.registerForDraggedTypes_(["ImageProxy"])
         NSLog("I'm awake")
             
     def load_images(self, filenames):
@@ -131,6 +130,13 @@ class PyviewController(NSObject):
         clustered = ImageProxy.cluster_images(self.dataSource.root, insession, PhotoSessionFactory)
         self.dataSource.root = clustered
         self.outlineView.reloadItem_reloadChildren_(None, True)
+    
+    ################################################
+    # Drag & Drop support
+    ################################################
+    
+    def draggingSourceOperationMaskForLocal_(self, flag):
+        return NSDragOperationCopy
 
 def PhotoSessionFactory():
     ps = ImageProxy.PhotoSession.alloc()

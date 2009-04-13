@@ -102,13 +102,12 @@ class PhotoSession(ObjectBase):
     name = property(getName, setName)
     del setName
     del getName
-    
-    @property
-    def originalFileName(self):
+        
+    def __getattr__(self, name):
         if self.images:
-            return self.images[0].originalFileName
+            return getattr(self.images[0], name)
         else:
-            raise AttributeError("PhotoSession object contains no image to provide a filename")
+            raise AttributeError("PhotoSession object contains no image to defer attribute access.")
         
     def append(self, image):
         self.images.append(image)

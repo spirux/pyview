@@ -8,8 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="517"/>
 			<integer value="29"/>
-			<integer value="514"/>
 			<integer value="371"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -748,7 +748,7 @@
 					<nil key="NSToolbarDelegate"/>
 					<bool key="NSToolbarPrefersToBeShown">YES</bool>
 					<bool key="NSToolbarShowsBaselineSeparator">NO</bool>
-					<bool key="NSToolbarAllowsUserCustomization">NO</bool>
+					<bool key="NSToolbarAllowsUserCustomization">YES</bool>
 					<bool key="NSToolbarAutosavesConfiguration">YES</bool>
 					<int key="NSToolbarDisplayMode">1</int>
 					<int key="NSToolbarSizeMode">2</int>
@@ -1280,7 +1280,6 @@ AAAAAAAAAAAAAA</bytes>
 						<reference ref="884851114"/>
 						<reference ref="241057972"/>
 						<reference ref="18127408"/>
-						<reference ref="1060619802"/>
 						<reference ref="1066442370"/>
 						<reference ref="798603168"/>
 						<reference ref="242122071"/>
@@ -1290,6 +1289,7 @@ AAAAAAAAAAAAAA</bytes>
 						<reference ref="313770764"/>
 						<reference ref="474878792"/>
 						<reference ref="696521058"/>
+						<reference ref="1060619802"/>
 					</object>
 					<object class="NSMutableArray" key="NSToolbarIBDefaultItems">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1301,8 +1301,8 @@ AAAAAAAAAAAAAA</bytes>
 						<reference ref="474878792"/>
 						<reference ref="696521058"/>
 						<reference ref="18127408"/>
-						<reference ref="286525564"/>
 						<reference ref="1060619802"/>
+						<reference ref="286525564"/>
 					</object>
 					<object class="NSMutableArray" key="NSToolbarIBSelectableItems">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1659,7 +1659,7 @@ AAAAAAAAAAAAAA</bytes>
 			<object class="NSWindowTemplate" id="248743978">
 				<int key="NSWindowStyleMask">31</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{894, 194}, {276, 378}}</string>
+				<string key="NSWindowRect">{{894, 173}, {276, 399}}</string>
 				<int key="NSWTFlags">-469762048</int>
 				<string key="NSWindowTitle">EXIF</string>
 				<string key="NSWindowClass">NSPanel</string>
@@ -1811,7 +1811,7 @@ AAAAAAAAAAAAAA</bytes>
 									<double key="NSPercent">9.456522e-01</double>
 								</object>
 							</object>
-							<string key="NSFrame">{{-1, -1}, {278, 380}}</string>
+							<string key="NSFrame">{{-1, 20}, {278, 380}}</string>
 							<reference key="NSSuperview" ref="614583404"/>
 							<reference key="NSNextKeyView" ref="286166337"/>
 							<int key="NSsFlags">18</int>
@@ -1820,7 +1820,7 @@ AAAAAAAAAAAAAA</bytes>
 							<reference key="NSContentView" ref="286166337"/>
 						</object>
 					</object>
-					<string key="NSFrameSize">{276, 378}</string>
+					<string key="NSFrameSize">{276, 399}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -2203,14 +2203,6 @@ AAAAAAAAAAAAAA</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">removeSelected:</string>
-						<reference key="source" ref="662338854"/>
-						<reference key="destination" ref="493877672"/>
-					</object>
-					<int key="connectionID">544</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">autogroupItems:</string>
 						<reference key="source" ref="662338854"/>
 						<reference key="destination" ref="313770764"/>
@@ -2219,11 +2211,19 @@ AAAAAAAAAAAAAA</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">runToolbarCustomizationPalette:</string>
+						<string key="label">removeSelected:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="493877672"/>
+					</object>
+					<int key="connectionID">553</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">runToolbarCustomization:</string>
 						<reference key="source" ref="1014"/>
 						<reference key="destination" ref="1060619802"/>
 					</object>
-					<int key="connectionID">547</int>
+					<int key="connectionID">557</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2967,7 +2967,6 @@ AAAAAAAAAAAAAA</bytes>
 							<reference ref="884851114"/>
 							<reference ref="241057972"/>
 							<reference ref="18127408"/>
-							<reference ref="1060619802"/>
 							<reference ref="1066442370"/>
 							<reference ref="798603168"/>
 							<reference ref="242122071"/>
@@ -2977,6 +2976,7 @@ AAAAAAAAAAAAAA</bytes>
 							<reference ref="474878792"/>
 							<reference ref="313770764"/>
 							<reference ref="696521058"/>
+							<reference ref="1060619802"/>
 						</object>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -2993,11 +2993,6 @@ AAAAAAAAAAAAAA</bytes>
 					<object class="IBObjectRecord">
 						<int key="objectID">491</int>
 						<reference key="object" ref="18127408"/>
-						<reference key="parent" ref="205582395"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">492</int>
-						<reference key="object" ref="1060619802"/>
 						<reference key="parent" ref="205582395"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -3112,6 +3107,11 @@ AAAAAAAAAAAAAA</bytes>
 						<int key="objectID">536</int>
 						<reference key="object" ref="828725129"/>
 						<reference key="parent" ref="1049"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">554</int>
+						<reference key="object" ref="1060619802"/>
+						<reference key="parent" ref="205582395"/>
 					</object>
 				</object>
 			</object>
@@ -3287,7 +3287,6 @@ AAAAAAAAAAAAAA</bytes>
 					<string>488.IBPluginDependency</string>
 					<string>490.IBPluginDependency</string>
 					<string>491.IBPluginDependency</string>
-					<string>492.IBPluginDependency</string>
 					<string>493.IBPluginDependency</string>
 					<string>494.IBPluginDependency</string>
 					<string>497.IBPluginDependency</string>
@@ -3312,6 +3311,7 @@ AAAAAAAAAAAAAA</bytes>
 					<string>523.IBPluginDependency</string>
 					<string>532.IBPluginDependency</string>
 					<string>536.IBPluginDependency</string>
+					<string>554.IBPluginDependency</string>
 					<string>56.IBPluginDependency</string>
 					<string>56.ImportedFromIB2</string>
 					<string>57.IBEditorWindowLastContentRect</string>
@@ -3482,11 +3482,11 @@ AAAAAAAAAAAAAA</bytes>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{228, 179}, {640, 508}}</string>
+					<string>{{210, 169}, {640, 508}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="8"/>
 					<reference ref="8"/>
-					<string>{{228, 179}, {640, 508}}</string>
+					<string>{{210, 169}, {640, 508}}</string>
 					<reference ref="9"/>
 					<string>{{238, 285}, {480, 360}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3504,8 +3504,7 @@ AAAAAAAAAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{240, 687}, {616, 0}}</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{222, 677}, {616, 0}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3522,9 +3521,9 @@ AAAAAAAAAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{803, 194}, {276, 378}}</string>
+					<string>{{572, 173}, {276, 399}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{803, 194}, {276, 378}}</string>
+					<string>{{572, 173}, {276, 399}}</string>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3533,6 +3532,7 @@ AAAAAAAAAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.imagekit.ibplugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
@@ -3582,7 +3582,7 @@ AAAAAAAAAAAAAA</bytes>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">547</int>
+			<int key="maxID">559</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
