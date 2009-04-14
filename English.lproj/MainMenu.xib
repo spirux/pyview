@@ -10,7 +10,7 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="517"/>
 			<integer value="29"/>
-			<integer value="371"/>
+			<integer value="442"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1437,7 +1437,7 @@ AAAAAAAAAAAAAA</bytes>
 																	<object class="NSTextFieldCell" key="NSDataCell" id="860343678">
 																		<int key="NSCellFlags">337772096</int>
 																		<int key="NSCellFlags2">2048</int>
-																		<string key="NSContents">Hollyday in Cambodia</string>
+																		<string key="NSContents">Text Cell</string>
 																		<object class="NSFont" key="NSSupport" id="961416180">
 																			<string key="NSName">LucidaGrande</string>
 																			<double key="NSSize">1.300000e+01</double>
@@ -1479,9 +1479,9 @@ AAAAAAAAAAAAAA</bytes>
 																		<reference key="NSTextColor" ref="1027608368"/>
 																	</object>
 																	<object class="NSTextFieldCell" key="NSDataCell" id="232544258">
-																		<int key="NSCellFlags">67239488</int>
+																		<int key="NSCellFlags">337772097</int>
 																		<int key="NSCellFlags2">272630784</int>
-																		<string key="NSContents">Text</string>
+																		<string key="NSContents">Text Cell</string>
 																		<reference key="NSSupport" ref="961416180"/>
 																		<reference key="NSControlView" ref="809288042"/>
 																		<object class="NSColor" key="NSBackgroundColor">
@@ -1793,7 +1793,7 @@ AAAAAAAAAAAAAA</bytes>
 								<object class="NSScroller" id="378259176">
 									<reference key="NSNextResponder" ref="296989381"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{262, 1}, {15, 363}}</string>
+									<string key="NSFrame">{{262, 1}, {15, 378}}</string>
 									<reference key="NSSuperview" ref="296989381"/>
 									<reference key="NSTarget" ref="296989381"/>
 									<string key="NSAction">_doScroller:</string>

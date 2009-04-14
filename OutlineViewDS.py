@@ -107,6 +107,10 @@ class OutlineViewDS (NSObject):
 		outlineView.reloadItem_reloadChildren_(None, True)
 		return True
 		
+		
+	# Method needed to allow editing.
+	def outlineView_setObjectValue_forTableColumn_byItem_(self, view, obj, columns, item):
+		print "Setname called with", str(obj)
 	#
 	# Helper functions
 	#
