@@ -51,7 +51,7 @@ class PyviewController(NSObject):
     def load_images(self, filenames):
         newitems = []
         for fname in filenames:
-            img = ImageProxy.ImageProxy.alloc()
+            img = ImageProxy.ImageProxy.alloc().init()
             img.__init__(fname)
             newitems.append(img)
         self.dataSource.root += newitems
@@ -139,6 +139,6 @@ class PyviewController(NSObject):
         return NSDragOperationCopy
 
 def PhotoSessionFactory():
-    ps = ImageProxy.PhotoSession.alloc()
+    ps = ImageProxy.PhotoSession.alloc().init()
     ps.__init__()
     return ps

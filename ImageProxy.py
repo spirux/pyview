@@ -30,6 +30,7 @@ def parse_exif_time(timestring, format = '%Y:%m:%d %H:%M:%S'):
 
 class ImageProxy(ObjectBase):
     isExpandable = False
+    
     def __init__(self, fname, stop_tag = None):
         named = {'details':False}
         if stop_tag: named['stop_tag'] = stop_tag

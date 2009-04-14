@@ -101,7 +101,7 @@ class OutlineViewDS (NSObject):
 			parent_list = self.root
 			if parent:
 				parent_list = parent.images
-			#parent_list.remove(item)
+			parent_list.remove(item)
 			target_list.insert(index, item)
 
 		outlineView.reloadItem_reloadChildren_(None, True)
