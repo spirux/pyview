@@ -107,21 +107,37 @@ class PyviewController(NSObject):
 
     @objc.IBAction
     def removeSelected_(self, sender):
-        selection = self.outlineView.selectedRowIndexes()
-        row = selection.firstIndex()
         modified = set()
-        while row != NSNotFound:
-            item = self.outlineView.itemAtRow_(row)
+        
+        for item in self.dataSource.selectedItems():
             parent = self.outlineView.parentForItem_(item)
             modified.add(parent)
             if parent is None:
                 parent = self.dataSource.root
             parent.remove(item)
-            #get next row index
-            row = selection.indexGreaterThanIndex_(row)
-            
+
         for parent in modified:
             self.outlineView.reloadItem_reloadChildren_(parent, True)
+    
+    @objc.IBAction
+    def groupSelected_(self, sender):
+        selected = self.dataSource.selectedItems()
+        # We will hang the new group under the closest ancestor
+        common_parent = self.dataSource.closestCommonAncestor(selected)
+        if common_parent is None:
+            common_parent = self.dataSource.root
+        
+        #unlink all selected items
+        for item in selected:
+            parent = self.dataSource.parentof(item)
+            parent.remove(item)
+            
+        newgroup = PhotoSessionFactory()
+        for o in selected:
+            newgroup.append(o)
+        common_parent.append(newgroup)
+        self.outlineView.reloadItem_reloadChildren_(None, True)
+
     
     @objc.IBAction
     def autogroupItems_(self, sender):

@@ -15,6 +15,7 @@
 		34C29B970F8EA91A00CF7EA8 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C29B950F8EA91A00CF7EA8 /* Quartz.framework */; };
 		34C29B980F8EA91A00CF7EA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C29B960F8EA91A00CF7EA8 /* QuartzCore.framework */; };
 		34CED0E80F8CE573000CEF9E /* EXIF.py in Resources */ = {isa = PBXBuildFile; fileRef = 34CED0E70F8CE573000CEF9E /* EXIF.py */; };
+		34D398160F94CD6A0072A4B4 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D398150F94CD6A0072A4B4 /* Preferences.xib */; };
 		77631A270C06C501005415CB /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77631A260C06C501005415CB /* Python.framework */; };
 		77631A3F0C0748CF005415CB /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = 77631A3E0C0748CF005415CB /* main.py */; };
 		7790198F0C07548A00326F66 /* PyviewAppDelegate.py in Resources */ = {isa = PBXBuildFile; fileRef = 7790198E0C07548A00326F66 /* PyviewAppDelegate.py */; };
@@ -40,6 +41,7 @@
 		34C29B950F8EA91A00CF7EA8 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		34C29B960F8EA91A00CF7EA8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		34CED0E70F8CE573000CEF9E /* EXIF.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = EXIF.py; sourceTree = "<group>"; };
+		34D398150F94CD6A0072A4B4 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		77631A260C06C501005415CB /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = /System/Library/Frameworks/Python.framework; sourceTree = "<absolute>"; };
 		77631A3E0C0748CF005415CB /* main.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
 		7790198E0C07548A00326F66 /* PyviewAppDelegate.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PyviewAppDelegate.py; sourceTree = "<group>"; usesTabs = 0; };
@@ -134,6 +136,7 @@
 				77C8C1F70C07829500965286 /* MainMenu.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				34D398150F94CD6A0072A4B4 /* Preferences.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				34AFCCEE0F88E70000A6CEEA /* OutlineViewDS.py in Resources */,
 				341F87B90F8B894C0052AA18 /* OpaqueView.py in Resources */,
 				34CED0E80F8CE573000CEF9E /* EXIF.py in Resources */,
+				34D398160F94CD6A0072A4B4 /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

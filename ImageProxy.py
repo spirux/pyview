@@ -113,6 +113,9 @@ class PhotoSession(ObjectBase):
     def append(self, image):
         self.images.append(image)
     
+    def insert(self, index, item):
+        self.images.insert(index, item)
+    
     def remove(self, image):
         self.images.remove(image)
 
