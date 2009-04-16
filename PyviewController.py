@@ -12,6 +12,8 @@ from Foundation import *
 from os.path import basename
 from datetime import datetime, timedelta
 from OutlineViewDS import *
+from os.path import isdir
+
 import ImageProxy
 
 PVCInstance  = None;
@@ -22,6 +24,7 @@ class PyviewController(NSObject):
     imageView = objc.IBOutlet()
     outlineView = objc.IBOutlet()
     dataSource = objc.IBOutlet()
+    window = objc.IBOutlet()
     
     def awakeFromNib(self):
         """
@@ -46,9 +49,11 @@ class PyviewController(NSObject):
         self.exifPanel.setBecomesKeyOnlyIfNeeded_(True)
         # set-up drag & drop
         self.outlineView.registerForDraggedTypes_(["ImageProxy"])
-        NSLog("I'm awake")
+        self.window.registerForDraggedTypes_([NSFilenamesPboardType])
+        self.dragged_files = None
             
     def load_images(self, filenames):
+        #TODO: handle directories by descending recursively
         newitems = []
         for fname in filenames:
             img = ImageProxy.ImageProxy.alloc().init()
@@ -150,10 +155,30 @@ class PyviewController(NSObject):
     ################################################
     # Drag & Drop support
     ################################################
-    
-    def draggingSourceOperationMaskForLocal_(self, flag):
-        return NSDragOperationCopy
+    def draggingEntered_(self, sender):
+    	pasteboard = sender.draggingPasteboard()
+        if not pasteboard.types().containsObject_(NSFilenamesPboardType):
+            return NSDragOperationNone
+        fnames = pasteboard.propertyListForType_(NSFilenamesPboardType)
+        # accept all supported images and directories
+        is_loadable = lambda x: ImageProxy.isLoadableFileType(x) or isdir(x)
 
+        if all(is_loadable(f) for f in fnames):
+            self.dragged_files = fnames
+            return NSDragOperationCopy
+
+        return NSDragOperationNone
+        
+    def draggingExited_(self, sender):
+        self.dragged_files = None
+        print "Oh, you changed your mind. It's OK."
+    
+    def performDragOperation_(self, sender):
+        if self.dragged_files:
+            self.load_images(self.dragged_files)
+            return True
+        return False
+    
 def PhotoSessionFactory():
     ps = ImageProxy.PhotoSession.alloc().init()
     ps.__init__()

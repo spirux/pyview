@@ -6,7 +6,9 @@
 #  Created by spirux on 28/03/2009.
 #  Copyright (c) 2009 __MyCompanyName__. All rights reserved.
 #
-
+accepted_extensions = ('jpg', 'jpeg', 'nef', 'cr2', 'dng', \
+                    'tif', 'tiff', 'png', 'orf', 'crw', 'pef', \
+                    'raw', 'mrw', 'rw2', 'x3f', 'raf', 'sr2', 'arw')
 import EXIF
 from datetime import datetime, timedelta
 import os
@@ -146,6 +148,22 @@ def cluster_images(images, belongs_rule, sessionFactory = PhotoSession):
             
     # TODO: implement optional session merging logic
     return all_sessions
+
+def isLoadableFileType(fname):
+    """
+    Tests if the file under fname is loadable in an ImageProxy object
+    """
+    # Check the extension against known extensions
+    extension = fname.split('.')[-1].lower()
+    if not extension in accepted_extensions:
+        return False
+        
+    # Check that the file can be opened
+    try:
+        open(fname)
+    except:
+        return False
+    return True
 
 if __name__ == '__main__':
     import sys
