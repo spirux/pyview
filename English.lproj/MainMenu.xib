@@ -9,8 +9,8 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="517"/>
-			<integer value="371"/>
 			<integer value="29"/>
+			<integer value="371"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2234,6 +2234,14 @@ AAAAAAAAAAAAAA</bytes>
 					</object>
 					<int key="connectionID">564</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">ungroupSelected:</string>
+						<reference key="source" ref="662338854"/>
+						<reference key="destination" ref="474878792"/>
+					</object>
+					<int key="connectionID">565</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3591,7 +3599,7 @@ AAAAAAAAAAAAAA</bytes>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">564</int>
+			<int key="maxID">565</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3652,9 +3660,11 @@ AAAAAAAAAAAAAA</bytes>
 							<string>menuOpen:</string>
 							<string>removeSelected:</string>
 							<string>toggleExifPanel:</string>
+							<string>ungroupSelected:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

@@ -143,6 +143,31 @@ class PyviewController(NSObject):
         common_parent.append(newgroup)
         self.outlineView.reloadItem_reloadChildren_(None, True)
 
+
+    @objc.IBAction
+    def ungroupSelected_(self, sender):
+        selected = self.dataSource.selectedItems()
+
+        #work only with photosessions
+        isphotosession = lambda x: isinstance(x, ImageProxy.PhotoSession)
+        selected = filter(isphotosession, selected)
+        #find out the parent of everyone
+        parents = {}
+        for group in selected:
+            parents[group] = self.dataSource.parentof(group)
+
+        #move images to parents
+        for group in selected:
+            parent = parents[group]
+            for image in group.images:
+                parent.append(image)
+        
+        #unlink the removed groups
+        for group in selected:
+            parents[group].remove(group)
+        
+        self.outlineView.reloadItem_reloadChildren_(None, True)
+
     
     @objc.IBAction
     def autogroupItems_(self, sender):
