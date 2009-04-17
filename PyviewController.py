@@ -176,6 +176,11 @@ class PyviewController(NSObject):
         clustered = ImageProxy.cluster_images(self.dataSource.root, insession, PhotoSessionFactory)
         self.dataSource.root = clustered
         self.outlineView.reloadItem_reloadChildren_(None, True)
+        
+    @objc.IBAction
+    def storeImageHierarchy_(self, sender):
+        a = NSAlert.alertWithMessageText_defaultButton_alternateButton_otherButton_informativeTextWithFormat_(u"Not implemented", None, None, None, u"This function is  not implemented yet.")
+        a.runModal()
     
     ################################################
     # Drag & Drop support

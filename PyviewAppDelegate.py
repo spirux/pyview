@@ -35,3 +35,8 @@ class PyviewAppDelegate(NSObject):
         
     def applicationShouldTerminateAfterLastWindowClosed_(self, sender):
         return True
+
+    @objc.IBAction
+    def showPreferences_(self, sender):
+        if not NSBundle.loadNibNamed_owner_("PreferencesWindow", self):
+            NSLog("Error preferences Nib!");

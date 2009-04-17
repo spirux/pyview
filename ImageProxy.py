@@ -123,8 +123,9 @@ class PhotoSession(ObjectBase):
 
 def by_day(img, session, mindelta = timedelta(0)):
     """
-    Groupping predicate. Groups each day in a different group, provided that days are
-    at least 
+    Groupping predicate. Groups each day in a different group.
+    But don't start a new day ntil you find a gap longer than mindelta.
+    """
     return session.date.date() == img.date.date() or (img.date - session.endDate) <= mindelta
 
 def by_month(img, session, mindelta = timedelta(0)):
