@@ -122,8 +122,19 @@ class PhotoSession(ObjectBase):
         self.images.remove(image)
 
 def by_day(img, session, mindelta = timedelta(0)):
+    """
+    Groupping predicate. Groups each day in a different group, provided that days are
+    at least 
     return session.date.date() == img.date.date() or (img.date - session.endDate) <= mindelta
 
+def by_month(img, session, mindelta = timedelta(0)):
+    ses_start = session.startDate
+    ses_end = session.endDate
+    return (ses_start.month == img.date.month and ses_start.year == img.date.year) \
+        or (img.date - ses_end) <= mindelta
+
+def by_timespan(img, session, mindelta = timedelta(0)):
+    return (img.date - session.endDate) <= mindelta
 
 def cluster_images(images, belongs_rule, sessionFactory = PhotoSession):
     """

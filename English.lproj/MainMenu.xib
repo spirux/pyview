@@ -8,9 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="517"/>
 			<integer value="29"/>
-			<integer value="371"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1061,121 +1059,6 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 												</object>
 											</object>
 										</object>
-										<object class="NSArray">
-											<bool key="EncodedWithXMLCoder">YES</bool>
-											<reference ref="8"/>
-											<object class="NSBitmapImageRep">
-												<object class="NSData" key="NSTIFFRepresentation">
-													<bytes key="NS.bytes">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
-Nn43mTiyOck63jv0PQc+GD8pQDlBRkJSQ1tEZEVtRnNHd0h7SX9KgUuBTIFNgE5/T35Qe1F5UnVTdFRx
-VWxWaldnWGVZYlphW19cXV1dXltfXGBcYV1iX2NgZGJlZmZpZ2xocGl1anlrfWyCbYZui2+QcJRxmHKc
-c6B0o3Wmdqh3qnireat6qnupfKd9pH6hf52AmIGTgoyDhYR9hXSGaodgiFWJSoo+izGMJI0WjgiO+Y/p
-kNmRyZK4k6eUlZWDlnCXXZhKmTeaI5sPm/uc5p3Snr6fqqCVoYGibKNYpESlMKYdpwmn9qjjqdGqvqut
-rJutia55r2iwWLFIsjmzKrQctQ62ALbzt+a427nPusS7urywvai+oL+ZwJPBjsKKw4fEhcWExoXHh8iK
-yY/KlcudzKbNsc6+z8zQ3NHt0wHUFtUt1kbXYNh82ZnaudvZ3PveHt9C4GjhjeK049rlAOYm50zocemU
-6rbr1+z17hDvKfA/8VLyYvNu9Hj1ffZ/9374evlz+mn7XPxO/T/+Lf8Y//4AAAAcAIMBIAGtAkEC0wNn
-BAgEoQVIBfcGoQdQCAIItQlsCiUK4QuhDGINJA3pDqwPdBBAEQwR2BKkE3IUQxUZFegWvBeRGGYZPRoW
-GuwbxBydHXceUB8oIAIg3CG1Io0jZyRCJRol8SbHJ50ocylJKh0q8CvDLJQtZC40LwIvzjCaMWYyMTL4
-M780hjVNNhE21TeYOFs5HDndOp47XjwePNw9mz5aPxg/1kCUQVJCEELOQ41ES0ULRclGiEdJSAlIyUmL
-Sk5LEEvSTJZNW04fTuRPqlBxUThSAFLJU5NUXVUnVfJWvVeKWFdZJVnzWsFbkVxhXTFeAl7UX6dgeWFN
-YiFi9mPMZKNleWZRZyloAmjcabZqkWtsbEltJW4Bbt9vvXCbcXpyWHM3dBZ09XXUdrN3knhxeVB6L3sN
-e+t8yX2mfoN/YIA8gRiB84LOg6mEg4VdhjaHD4foiMGJmYpyi0qMIoz6jdKOq4+EkFyRNZIPkuiTw5Se
-lXmWVZcymBCY7pnNmq2bj5xxnVSeOZ8foAWg7qHYosOjsKSepY6mgKd0qGqpYqpcq1qsWa1crmOvbrB8
-sY+yp7PFtOq2FbdIuIS5yrsavHW93L9SwNfCasQPxcbHkMlty2DNaM+G0bvUCNZq2OTbdd4d4NrjquaQ
-6Yfsju+k8sz18/kp/HL/2gAAbmRpbgAAAAAAAAY2AACXkQAAWLgAAFVBAACMFQAAKFcAABaoAABQDQAA
-VDkAAvCjAAK1wgABqPUAAwEAAAIAAAABAAUACgARABkAIwAvADsASQBZAGkAewCOAKIAuADPAOcBAAEa
-ATUBUgFvAY4BrgHPAfECFQI5Al8ChQKtAtYDAAMsA1gDhgO1A+QEFgRIBHwEsQTnBR4FVwWRBcwGCQZI
-BocGyAcLB08HlAfcCCQIbwi7CQkJWAmpCfwKUQqoCwELWwu3DBYMdgzZDT0NpA4MDncO4w9SD8MQNhCr
-ESIRmxIWEpMTEhOTFBYUmxUiFasWNRbCF1EX4RhzGQcZnBo0Gs0baBwFHKQdRB3mHoofMB/YIIEhLSHa
-IoojOyPvJKUlXSYXJtQnkyhUKRkp3yqpK3UsRC0WLewuxC+fMH4xYDJGMy80HDUMNgA2+DfzOPI59Tr7
-PAY9FD4mPztAVUFyQpJDt0TfRgpHOUhsSaJK3EwZTVlOnU/lUS9SfVPPVSRWfFfYWTdamVv/XWhe1WBE
-YbhjLmSnZiRnpWkoaq9sOG3Fb1Vw6XJ/dBh1tXdUePd6nXxGffF/oIFSgwiEwIZ8iDuJ/YvCjYuPV5En
-kvqU0ZasmIqaa5xRnjqgJ6IXpAymBKgAqgCsBK4LsBeyJrQ4tk64aLqEvKO+xMDnwwvFMMdWyXvLn83B
-z+HR/dQX1i3YPtpK3FHeVOBS4krkPuYt6Bfp/uvg7b/vm/F180z1IPby+Mj6m/xr/jn//wAAAAIABQAL
-ABIAHAAmADIAQABPAGAAcgCFAJoAsADHAOAA+gEVATIBTwFuAY8BsAHTAfcCHAJCAmoCkwK9AukDFQND
-A3MDowPVBAgEPQRzBKoE4wUdBVkFlgXVBhUGVwabBuAHJwdvB7oIBghUCKQI9glKCaEJ+QpTCrALDwtw
-C9MMOQyhDQwNeQ3oDloOzw9GD78QOxC6ETsRvxJFEs0TWBPlFHUVBhWaFjEWyRdkGAAYnxk/GeIahxst
-G9YcgB0sHdoeih88H/AgpSFcIhYi0SOOJE0lDyXSJpgnXygpKPUpxCqVK2gsPi0XLfIu0C+xMJUxfDJl
-M1I0QjU1Nis3JDggOSA6IzspPDM9QD5QP2RAe0GVQrND1ET4RiBHS0h6SaxK4UwaTVZOlU/YUR5SZ1O0
-VQRWV1etWQZaYlvBXSNeh1/vYVlixmQ1ZadnG2iSagtrh20EboRwB3GLcxJ0m3Ymd7N5QnrTfGZ9/H+T
-gSuCxoRihgCHoIlAiuKMho4qj8+RdZMclMOWa5gUmb2bZp0PnrigYaIKo7OlXKcFqK2qVqv+raWvTbD0
-spu0QrXpt4+5NrrdvIS+LL/UwX3DJ8TSxn/ILsney5HNR87/0LvSe9Q/1gfX1dmo24LdYt9K4TnjMOUv
-5zfpSutl7YrvufHx9DP2fvjN+yX9iP//AAAAAwAJABMAIAAwAEIAVwBvAIkApgDFAOYBCgEwAVkBgwGw
-Ad8CEQJFAnoCswLtAyoDaQOqA+4ENAR8BMcFFQVlBbcGDQZlBr8HHQd+B+IISQizCSEJkgoGCn8K+wt7
-C/8Mhw0TDaQOOQ7SD3AQEhC4EWQSExLHE38UPBT9FcIWixdYGCkY/RnWGrEbkRxzHVkeQh8tIBwhDiIC
-Ivoj9CTwJfAm8if2KP0qBysULCMtNC5IL18weDGUMrIz0zT1Nhs3QzhtOZk6xzv4PSs+YD+XQNBCDENK
-RIpFzUcSSFlJo0rvTD9NkU7mUD5RmVL4VFpVv1coWJVaBVt6XPJeb1/vYXRi/WSKZhtnsWlLauhsim4w
-b9lxh3M4dOx2pHheehx73H2ff2WBLIL2hMGGjohciiyL/Y3Pj6KRdZNIlR2W8ZjFmpqcbp5BoBSh5qO3
-pYenVakhquuss653sDex9LOttWG3D7i4ulu7972NvxvAosIhw5jFCMZwx9HJKsp6y8LNBM5Az3TQoNHH
-0unUAtUX1ifXMNg12TXaMNso3BrdCt303tzfv+Ch4X7iWeMw5Abk1+Wo5nXnQugJ6NLplupa6xzr3Oyc
-7VjuFe7P74jwQfD48a/yZPMY88z0fvUx9eD2kPdB9/P4pflU+gT6s/tg/A78uv1k/g7+tf9a//8AAGRl
-c2MAAAAAAAAAE0NvbG9yIExDRCBHMi4yIEQ2NQAAAAAAAAAAEwBDAG8AbABvAHIAIABMAEMARAAgAEcA
-MgAuADIAIABEADYANQAAAAATQ29sb3IgTENEIEcyLjIgRDY1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0ZXh0AAAAAENvcHlyaWdodCBBcHBsZSBJbmMuLCAyMDA4
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbW1vZAAAAAAAAAYQAACcXwAAAADAHV+cAAAAAAAA
-AAAAAAAAAAAAAA</bytes>
-												</object>
-											</object>
-										</object>
 									</object>
 									<object class="NSColor" key="NSColor">
 										<int key="NSColorSpace">3</int>
@@ -1310,7 +1193,7 @@ AAAAAAAAAAAAAA</bytes>
 				</object>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="439893737">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1638,7 +1521,6 @@ AAAAAAAAAAAAAA</bytes>
 						</object>
 					</object>
 					<string key="NSFrameSize">{640, 508}</string>
-					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -1659,7 +1541,7 @@ AAAAAAAAAAAAAA</bytes>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="614583404">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1676,29 +1558,6 @@ AAAAAAAAAAAAAA</bytes>
 										<object class="NSTextView" id="791541370">
 											<reference key="NSNextResponder" ref="286166337"/>
 											<int key="NSvFlags">2322</int>
-											<object class="NSMutableSet" key="NSDragTypes">
-												<bool key="EncodedWithXMLCoder">YES</bool>
-												<object class="NSMutableArray" key="set.sortedObjects">
-													<bool key="EncodedWithXMLCoder">YES</bool>
-													<string>Apple HTML pasteboard type</string>
-													<string>Apple PDF pasteboard type</string>
-													<string>Apple PICT pasteboard type</string>
-													<string>Apple PNG pasteboard type</string>
-													<string>Apple URL pasteboard type</string>
-													<string>CorePasteboardFlavorType 0x6D6F6F76</string>
-													<string>CorePasteboardFlavorType 0x75726C20</string>
-													<string>NSColor pasteboard type</string>
-													<string>NSFilenamesPboardType</string>
-													<string>NSStringPboardType</string>
-													<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
-													<string>NeXT RTFD pasteboard type</string>
-													<string>NeXT Rich Text Format v1.0 pasteboard type</string>
-													<string>NeXT TIFF v4.0 pasteboard type</string>
-													<string>NeXT font pasteboard type</string>
-													<string>NeXT ruler pasteboard type</string>
-													<string>WebURLsWithTitlesPboardType</string>
-												</object>
-											</object>
 											<string key="NSFrameSize">{261, 14}</string>
 											<reference key="NSSuperview" ref="286166337"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="354400758">
@@ -1814,7 +1673,6 @@ AAAAAAAAAAAAAA</bytes>
 						</object>
 					</object>
 					<string key="NSFrameSize">{276, 399}</string>
-					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -3499,11 +3357,11 @@ AAAAAAAAAAAAAA</bytes>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{84, 94}, {640, 508}}</string>
+					<string>{{171, 112}, {640, 508}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="8"/>
 					<reference ref="8"/>
-					<string>{{84, 94}, {640, 508}}</string>
+					<string>{{171, 112}, {640, 508}}</string>
 					<reference ref="9"/>
 					<string>{{238, 285}, {480, 360}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3599,7 +3457,7 @@ AAAAAAAAAAAAAA</bytes>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">565</int>
+			<int key="maxID">584</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
