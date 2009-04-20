@@ -1,0 +1,7 @@
+- load images in seperate thread
+- central method to load preferences
+- handle default preference values
+- recursively load directories
+- store metadata in the model
+- more speedy propagation of properties in Photosession objects
+- store changes in Filesystem

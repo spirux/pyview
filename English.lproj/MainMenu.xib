@@ -8,7 +8,6 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="371"/>
 			<integer value="81"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -811,7 +810,7 @@
 								<nil key="NSToolbarItemView"/>
 								<object class="NSCustomResource" key="NSToolbarItemImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">NSActionTemplate</string>
+									<string key="NSResourceName">fairy</string>
 								</object>
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
@@ -877,7 +876,7 @@
 								<nil key="NSToolbarItemView"/>
 								<object class="NSCustomResource" key="NSToolbarItemImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">NSFolderSmart</string>
+									<string key="NSResourceName">hdsave</string>
 								</object>
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
@@ -1252,7 +1251,7 @@ AAAAAAAAAAAAAA</bytes>
 				</object>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="439893737">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1276,7 +1275,6 @@ AAAAAAAAAAAAAA</bytes>
 													<int key="NSvFlags">274</int>
 													<string key="NSFrame">{{20, 20}, {600, 327}}</string>
 													<reference key="NSSuperview" ref="734287561"/>
-													<bool key="NSViewIsLayerTreeHost">YES</bool>
 													<object class="CISourceOverCompositing" key="NSViewCompositeFilter">
 														<bool key="CIEnabled">YES</bool>
 													</object>
@@ -1517,7 +1515,6 @@ AAAAAAAAAAAAAA</bytes>
 													</object>
 													<string key="NSFrame">{{1, 17}, {623, 79}}</string>
 													<reference key="NSSuperview" ref="464925201"/>
-													<reference key="NSNextKeyView" ref="809288042"/>
 													<reference key="NSDocView" ref="809288042"/>
 													<reference key="NSBGColor" ref="751955113"/>
 													<int key="NScvFlags">4</int>
@@ -1551,7 +1548,6 @@ AAAAAAAAAAAAAA</bytes>
 													</object>
 													<string key="NSFrame">{{1, 0}, {623, 17}}</string>
 													<reference key="NSSuperview" ref="464925201"/>
-													<reference key="NSNextKeyView" ref="926419481"/>
 													<reference key="NSDocView" ref="926419481"/>
 													<reference key="NSBGColor" ref="751955113"/>
 													<int key="NScvFlags">4</int>
@@ -1560,7 +1556,6 @@ AAAAAAAAAAAAAA</bytes>
 											</object>
 											<string key="NSFrameSize">{640, 112}</string>
 											<reference key="NSSuperview" ref="94896403"/>
-											<reference key="NSNextKeyView" ref="562655455"/>
 											<int key="NSsFlags">50</int>
 											<reference key="NSVScroller" ref="442461459"/>
 											<reference key="NSHScroller" ref="145276084"/>
@@ -1580,7 +1575,6 @@ AAAAAAAAAAAAAA</bytes>
 						</object>
 					</object>
 					<string key="NSFrameSize">{640, 508}</string>
-					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -3392,11 +3386,11 @@ AAAAAAAAAAAAAA</bytes>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{171, 112}, {640, 508}}</string>
+					<string>{{185, 121}, {640, 508}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="8"/>
 					<reference ref="8"/>
-					<string>{{171, 112}, {640, 508}}</string>
+					<string>{{185, 121}, {640, 508}}</string>
 					<reference ref="9"/>
 					<string>{{238, 285}, {480, 360}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

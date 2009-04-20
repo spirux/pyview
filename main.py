@@ -17,6 +17,7 @@ import PyviewAppDelegate
 import PyviewController
 import OutlineViewDS
 import OpaqueView
+import NSURLTransformer
 
 # Verbose exception logging
 objc.setVerbose(True)

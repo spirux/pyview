@@ -8,10 +8,13 @@
 
 from Foundation import *
 from AppKit import *
+import objc
 import PyviewController
+from Preferences import Preferences
 
 class PyviewAppDelegate(NSObject):
     def applicationDidFinishLaunching_(self, sender):
+        self.preferences = Preferences.alloc().init()
         NSLog("Application did finish launching.")
         
     def application_openFiles_(self, app, filenames):
@@ -38,5 +41,7 @@ class PyviewAppDelegate(NSObject):
 
     @objc.IBAction
     def showPreferences_(self, sender):
-        if not NSBundle.loadNibNamed_owner_("PreferencesWindow", self):
-            NSLog("Error preferences Nib!");
+        preferences = self.preferences
+        w = preferences.window()
+        w.makeKeyAndOrderFront_(self)
+        

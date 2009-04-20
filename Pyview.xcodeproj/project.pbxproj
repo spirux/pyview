@@ -12,9 +12,14 @@
 		341F87B90F8B894C0052AA18 /* OpaqueView.py in Resources */ = {isa = PBXBuildFile; fileRef = 341F87B80F8B894C0052AA18 /* OpaqueView.py */; };
 		343445200F7E8AF700A6ACE7 /* ImageProxy.py in Resources */ = {isa = PBXBuildFile; fileRef = 3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */; };
 		344A48F00F78068100A7E838 /* PyviewController.py in Resources */ = {isa = PBXBuildFile; fileRef = 344A48EF0F78068100A7E838 /* PyviewController.py */; };
+		347086E90F9A0B2000BD1025 /* NSURLTransformer.py in Resources */ = {isa = PBXBuildFile; fileRef = 347086E80F9A0B2000BD1025 /* NSURLTransformer.py */; };
+		347087070F9A1A0000BD1025 /* fairy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 347087060F9A1A0000BD1025 /* fairy.icns */; };
 		34AFCCEE0F88E70000A6CEEA /* OutlineViewDS.py in Resources */ = {isa = PBXBuildFile; fileRef = 34AFCCED0F88E70000A6CEEA /* OutlineViewDS.py */; };
 		34C29B970F8EA91A00CF7EA8 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C29B950F8EA91A00CF7EA8 /* Quartz.framework */; };
 		34C29B980F8EA91A00CF7EA8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34C29B960F8EA91A00CF7EA8 /* QuartzCore.framework */; };
+		34CC7C590F9A42B8003557FC /* hdsave.icns in Resources */ = {isa = PBXBuildFile; fileRef = 34CC7C580F9A42B8003557FC /* hdsave.icns */; };
+		34CC7CAA0F9B89E5003557FC /* Preferences.py in Resources */ = {isa = PBXBuildFile; fileRef = 34CC7CA90F9B89E5003557FC /* Preferences.py */; };
+		34CC7D480F9BF92F003557FC /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 34CC7D470F9BF92F003557FC /* TODO */; };
 		34CED0E80F8CE573000CEF9E /* EXIF.py in Resources */ = {isa = PBXBuildFile; fileRef = 34CED0E70F8CE573000CEF9E /* EXIF.py */; };
 		77631A270C06C501005415CB /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77631A260C06C501005415CB /* Python.framework */; };
 		77631A3F0C0748CF005415CB /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = 77631A3E0C0748CF005415CB /* main.py */; };
@@ -38,9 +43,14 @@
 		341F87B80F8B894C0052AA18 /* OpaqueView.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = OpaqueView.py; sourceTree = "<group>"; };
 		3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ImageProxy.py; sourceTree = "<group>"; usesTabs = 0; };
 		344A48EF0F78068100A7E838 /* PyviewController.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PyviewController.py; sourceTree = "<group>"; usesTabs = 0; };
+		347086E80F9A0B2000BD1025 /* NSURLTransformer.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = NSURLTransformer.py; sourceTree = "<group>"; };
+		347087060F9A1A0000BD1025 /* fairy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = fairy.icns; sourceTree = "<group>"; };
 		34AFCCED0F88E70000A6CEEA /* OutlineViewDS.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = OutlineViewDS.py; sourceTree = "<group>"; };
 		34C29B950F8EA91A00CF7EA8 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		34C29B960F8EA91A00CF7EA8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		34CC7C580F9A42B8003557FC /* hdsave.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = hdsave.icns; sourceTree = "<group>"; };
+		34CC7CA90F9B89E5003557FC /* Preferences.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Preferences.py; sourceTree = "<group>"; };
+		34CC7D470F9BF92F003557FC /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		34CED0E70F8CE573000CEF9E /* EXIF.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = EXIF.py; sourceTree = "<group>"; };
 		77631A260C06C501005415CB /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = /System/Library/Frameworks/Python.framework; sourceTree = "<absolute>"; };
 		77631A3E0C0748CF005415CB /* main.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
@@ -68,6 +78,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				347086E70F9A0AB700BD1025 /* Prefs */,
 				34CED0E70F8CE573000CEF9E /* EXIF.py */,
 				7790198E0C07548A00326F66 /* PyviewAppDelegate.py */,
 				344A48EF0F78068100A7E838 /* PyviewController.py */,
@@ -115,6 +126,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				34CC7D470F9BF92F003557FC /* TODO */,
 			);
 			name = Pyview;
 			sourceTree = "<group>";
@@ -132,7 +144,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3401922C0F7FB30300D7D3FA /* exificon.icns */,
+				34CC7C5A0F9A42BC003557FC /* Graphics */,
 				340C82BF0F97EA29009EDF61 /* PreferencesWindow.xib */,
 				77C8C1F70C07829500965286 /* MainMenu.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -148,6 +160,25 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		347086E70F9A0AB700BD1025 /* Prefs */ = {
+			isa = PBXGroup;
+			children = (
+				347086E80F9A0B2000BD1025 /* NSURLTransformer.py */,
+				34CC7CA90F9B89E5003557FC /* Preferences.py */,
+			);
+			name = Prefs;
+			sourceTree = "<group>";
+		};
+		34CC7C5A0F9A42BC003557FC /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				34CC7C580F9A42B8003557FC /* hdsave.icns */,
+				347087060F9A1A0000BD1025 /* fairy.icns */,
+				3401922C0F7FB30300D7D3FA /* exificon.icns */,
+			);
+			name = Graphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +235,11 @@
 				341F87B90F8B894C0052AA18 /* OpaqueView.py in Resources */,
 				34CED0E80F8CE573000CEF9E /* EXIF.py in Resources */,
 				340C82C10F97EA29009EDF61 /* PreferencesWindow.xib in Resources */,
+				347086E90F9A0B2000BD1025 /* NSURLTransformer.py in Resources */,
+				347087070F9A1A0000BD1025 /* fairy.icns in Resources */,
+				34CC7C590F9A42B8003557FC /* hdsave.icns in Resources */,
+				34CC7CAA0F9B89E5003557FC /* Preferences.py in Resources */,
+				34CC7D480F9BF92F003557FC /* TODO in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

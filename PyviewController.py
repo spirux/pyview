@@ -13,6 +13,7 @@ from os.path import basename
 from datetime import datetime, timedelta
 from OutlineViewDS import *
 from os.path import isdir
+from Preferences import *
 
 import ImageProxy
 
@@ -179,7 +180,8 @@ class PyviewController(NSObject):
         
     @objc.IBAction
     def storeImageHierarchy_(self, sender):
-        a = NSAlert.alertWithMessageText_defaultButton_alternateButton_otherButton_informativeTextWithFormat_(u"Not implemented", None, None, None, u"This function is  not implemented yet.")
+        target = NSUserDefaults.standardUserDefaults().stringForKey_("TargetFolder")
+        a = NSAlert.alertWithMessageText_defaultButton_alternateButton_otherButton_informativeTextWithFormat_(u"Not implemented yet", None, None, None, target)
         a.runModal()
     
     ################################################
