@@ -14,6 +14,9 @@ from datetime import datetime, timedelta
 from OutlineViewDS import *
 from os.path import isdir
 from Preferences import *
+from ProgressWindowController import *
+import threading
+import time
 
 import ImageProxy
 
@@ -52,23 +55,48 @@ class PyviewController(NSObject):
         self.outlineView.registerForDraggedTypes_(["ImageProxy"])
         self.window.registerForDraggedTypes_([NSFilenamesPboardType])
         self.dragged_files = None
-            
-    def load_images(self, filenames):
-        #TODO: handle directories by descending recursively
+        
+    def loadImageProxies_(self, args):
+        """
+        Method that loads creates and adds to the root ImageProxy objects.
+        It expects to run under a worker thread with a progress window.
+        Don't call this. Instead use load_images_()
+        """
+        # We need an NSAutoreleasePool to run in our own thread
+        pool = NSAutoreleasePool.alloc().init()
+        
+        # directories are handled by ImageProxy.loadableFileNames.
+        # They are recursively walked and loadable files are cherry-picked
+        filenames = ImageProxy.loadableFileNames(args[0])
+        progressWindow = args[1]
+        step = 100.0 / len(filenames) #step for the progress bar
         newitems = []
         for fname in filenames:
             img = ImageProxy.ImageProxy.alloc().init()
             img.__init__(fname)
             newitems.append(img)
+            progressWindow.safeIncrementBy_(step)
         self.dataSource.root += newitems
-        
-        #a.performSelector_withObject_afterDelay_(<#aSelector#>, <#anArgument#>, <#delay#>)
+        #inform the outline view  to reload everything
+        if newitems:
+            self.performSelectorOnMainThread_withObject_waitUntilDone_("refreshView:", newitems[0], False)
 
+        progressWindow.end()
+    
+    def load_images_(self, filenames):
+        #display a progress bar
+        pw = ProgressWindowController.alloc().init()
+        pw.beginSheet("Loading images. Please wait.", self.window)
+        #run the loading in a new thread
+        NSThread.detachNewThreadSelector_toTarget_withObject_('loadImageProxies:', self, (filenames,pw))
+
+    def refreshView_(self, displayimage):
         #inform the outline view  to reload everything
         #it is inefficient to update the whole view but I'm lazy
         self.outlineView.reloadItem_reloadChildren_(None, True)
-        if newitems:
-            self.change_image(newitems[0])
+        if displayimage:
+            self.change_image(displayimage)
+        
         
     def show_image_from_path(self, filepath):
         url = NSURL.fileURLWithPath_(filepath)
@@ -102,7 +130,7 @@ class PyviewController(NSObject):
         #allowed file types
         types = ('jpg', 'JPG', 'jpeg', 'JPEG')
         if dialog.runModalForDirectory_file_types_(None, None, types) == NSOKButton:
-            self.load_images(dialog.filenames())
+            self.load_images_(dialog.filenames())
 
     @objc.IBAction
     def toggleExifPanel_(self, sender):
@@ -124,6 +152,10 @@ class PyviewController(NSObject):
 
         for parent in modified:
             self.outlineView.reloadItem_reloadChildren_(parent, True)
+
+    ################################################
+    # Groupping ungroupping and autogroupping
+    ################################################
     
     @objc.IBAction
     def groupSelected_(self, sender):
@@ -142,7 +174,7 @@ class PyviewController(NSObject):
         for o in selected:
             newgroup.append(o)
         common_parent.append(newgroup)
-        self.outlineView.reloadItem_reloadChildren_(None, True)
+        self.refreshView_(None)
 
 
     @objc.IBAction
@@ -166,8 +198,7 @@ class PyviewController(NSObject):
         #unlink the removed groups
         for group in selected:
             parents[group].remove(group)
-        
-        self.outlineView.reloadItem_reloadChildren_(None, True)
+        self.refreshView_(None)
 
     
     @objc.IBAction
@@ -176,13 +207,28 @@ class PyviewController(NSObject):
         insession = lambda img, ses: ImageProxy.by_day(img, ses, hours5)
         clustered = ImageProxy.cluster_images(self.dataSource.root, insession, PhotoSessionFactory)
         self.dataSource.root = clustered
-        self.outlineView.reloadItem_reloadChildren_(None, True)
-        
+        self.refreshView_(None)
+            
     @objc.IBAction
     def storeImageHierarchy_(self, sender):
-        target = NSUserDefaults.standardUserDefaults().stringForKey_("TargetFolder")
-        a = NSAlert.alertWithMessageText_defaultButton_alternateButton_otherButton_informativeTextWithFormat_(u"Not implemented yet", None, None, None, target)
-        a.runModal()
+        pw = ProgressWindowController.alloc().init()
+        target = getPreference("TargetFolder")
+        pw.beginSheet(target, self.window)
+
+        class Dummy(NSObject):
+            def dummy_(self, pw):
+                pool = NSAutoreleasePool.alloc().init()
+                for i in xrange(10):
+                    time.sleep(1)
+                    pw.safeChangeMessage_(str(i))
+                    pw.safeIncrementBy_(10.0)
+                pw.end()
+        dum = Dummy.alloc().init()
+        
+        NSThread.detachNewThreadSelector_toTarget_withObject_('dummy:', dum, pw)
+        #a = NSAlert.alertWithMessageText_defaultButton_alternateButton_otherButton_informativeTextWithFormat_(u"Not implemented yet", None, None, None, target)
+        #a.runModal()
+        print "I'm done..."
     
     ################################################
     # Drag & Drop support
@@ -207,7 +253,7 @@ class PyviewController(NSObject):
     
     def performDragOperation_(self, sender):
         if self.dragged_files:
-            self.load_images(self.dragged_files)
+            self.load_images_(self.dragged_files)
             return True
         return False
     

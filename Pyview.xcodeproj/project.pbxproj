@@ -12,6 +12,8 @@
 		341F87B90F8B894C0052AA18 /* OpaqueView.py in Resources */ = {isa = PBXBuildFile; fileRef = 341F87B80F8B894C0052AA18 /* OpaqueView.py */; };
 		343445200F7E8AF700A6ACE7 /* ImageProxy.py in Resources */ = {isa = PBXBuildFile; fileRef = 3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */; };
 		344A48F00F78068100A7E838 /* PyviewController.py in Resources */ = {isa = PBXBuildFile; fileRef = 344A48EF0F78068100A7E838 /* PyviewController.py */; };
+		345AF73B0F9D12FA009709D3 /* ProgressSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 345AF73A0F9D12FA009709D3 /* ProgressSheet.xib */; };
+		345AF7580F9D20A5009709D3 /* ProgressWindowController.py in Resources */ = {isa = PBXBuildFile; fileRef = 345AF7570F9D20A5009709D3 /* ProgressWindowController.py */; };
 		347086E90F9A0B2000BD1025 /* NSURLTransformer.py in Resources */ = {isa = PBXBuildFile; fileRef = 347086E80F9A0B2000BD1025 /* NSURLTransformer.py */; };
 		347087070F9A1A0000BD1025 /* fairy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 347087060F9A1A0000BD1025 /* fairy.icns */; };
 		34AFCCEE0F88E70000A6CEEA /* OutlineViewDS.py in Resources */ = {isa = PBXBuildFile; fileRef = 34AFCCED0F88E70000A6CEEA /* OutlineViewDS.py */; };
@@ -43,6 +45,8 @@
 		341F87B80F8B894C0052AA18 /* OpaqueView.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = OpaqueView.py; sourceTree = "<group>"; };
 		3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ImageProxy.py; sourceTree = "<group>"; usesTabs = 0; };
 		344A48EF0F78068100A7E838 /* PyviewController.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PyviewController.py; sourceTree = "<group>"; usesTabs = 0; };
+		345AF73A0F9D12FA009709D3 /* ProgressSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressSheet.xib; sourceTree = "<group>"; };
+		345AF7570F9D20A5009709D3 /* ProgressWindowController.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ProgressWindowController.py; sourceTree = "<group>"; };
 		347086E80F9A0B2000BD1025 /* NSURLTransformer.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = NSURLTransformer.py; sourceTree = "<group>"; };
 		347087060F9A1A0000BD1025 /* fairy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = fairy.icns; sourceTree = "<group>"; };
 		34AFCCED0F88E70000A6CEEA /* OutlineViewDS.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = OutlineViewDS.py; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 				3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */,
 				34AFCCED0F88E70000A6CEEA /* OutlineViewDS.py */,
 				341F87B80F8B894C0052AA18 /* OpaqueView.py */,
+				345AF7570F9D20A5009709D3 /* ProgressWindowController.py */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				77C8C1F70C07829500965286 /* MainMenu.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				345AF73A0F9D12FA009709D3 /* ProgressSheet.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -240,6 +246,8 @@
 				34CC7C590F9A42B8003557FC /* hdsave.icns in Resources */,
 				34CC7CAA0F9B89E5003557FC /* Preferences.py in Resources */,
 				34CC7D480F9BF92F003557FC /* TODO in Resources */,
+				345AF73B0F9D12FA009709D3 /* ProgressSheet.xib in Resources */,
+				345AF7580F9D20A5009709D3 /* ProgressWindowController.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

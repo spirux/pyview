@@ -19,7 +19,7 @@ class PyviewAppDelegate(NSObject):
         
     def application_openFiles_(self, app, filenames):
         NSLog("Application Open Files.")
-        PyviewController.PVCInstance.load_images(filenames)
+        PyviewController.PVCInstance.load_images_(filenames)
         app.replyToOpenOrPrint_(NSApplicationDelegateReplySuccess)
     
     def applicationWillTerminate_(self, sender):

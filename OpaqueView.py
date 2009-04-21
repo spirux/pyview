@@ -6,7 +6,6 @@
 #  Copyright (c) 2009 __MyCompanyName__. All rights reserved.
 #
 from AppKit import NSView, NSColor, NSRectFill
-#from Foundation import *
 
 class OpaqueView(NSView):
 

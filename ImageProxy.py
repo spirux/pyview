@@ -12,7 +12,8 @@ accepted_extensions = ('jpg', 'jpeg', 'nef', 'cr2', 'dng', \
 import EXIF
 from datetime import datetime, timedelta
 import os
-from os.path import basename
+from os.path import basename, join, isdir
+
 import stat
 
 # On the OS X platform, we will derive all classes from the NSObject
@@ -176,6 +177,29 @@ def isLoadableFileType(fname):
     except:
         return False
     return True
+
+def loadableFileNames(paths):
+    "Locate a set of loadable filenames by recursively traversing all the directories in paths"
+    #use a set to avoid possible duplicates
+    picked_files = set()
+    for d in paths:
+        #handle non dirs
+        if not isdir(d):
+            if isLoadableFileType(d):
+                picked_files.add(d)
+            continue
+        
+        #walk directory and pick loadable files
+        for root, dirs, files in os.walk(d):
+            allfiles = (join(root, name) for name in files)
+            for fname in filter(isLoadableFileType, allfiles):
+                picked_files.add(fname)
+    return picked_files
+            
+                
+                
+
+        
 
 if __name__ == '__main__':
     import sys
