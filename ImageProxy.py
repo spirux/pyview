@@ -6,15 +6,22 @@
 #  Created by spirux on 28/03/2009.
 #  Copyright (c) 2009 __MyCompanyName__. All rights reserved.
 #
+import EXIF
+from datetime import datetime, timedelta
+import os, errno
+from os.path import basename, isdir
+import stat
+
 accepted_extensions = ('jpg', 'jpeg', 'nef', 'cr2', 'dng', \
                     'tif', 'tiff', 'png', 'orf', 'crw', 'pef', \
                     'raw', 'mrw', 'rw2', 'x3f', 'raf', 'sr2', 'arw')
-import EXIF
-from datetime import datetime, timedelta
-import os
-from os.path import basename, join, isdir
 
-import stat
+# these are replaced when found in the filename/path patterns by the return values
+# of the associated functions, performed on the object at hand
+replaceable_tokens = {
+    '%date': lambda x:x.date.strftime("%Y_%m_%d"),
+    '%filename': lambda x:x.name
+}
 
 # On the OS X platform, we will derive all classes from the NSObject
 # to play better with the NSOutlineView control. For anything else,
@@ -162,6 +169,69 @@ def cluster_images(images, belongs_rule, sessionFactory = PhotoSession):
     # TODO: implement optional session merging logic
     return all_sessions
 
+def replace_tokens(pattern, obj, repl_tokens = replaceable_tokens):
+    # perform replacements
+    for token in repl_tokens:
+        if pattern.find(token) >= 0:
+            val = repl_tokens[token](obj)
+            pattern = pattern.replace(token, val)
+
+    #perform date related replacements, exactly like in strftime
+    pattern = obj.date.strftime(pattern)
+    return pattern
+
+def pathOfSession(psession, basepath, root_basepath, pattern1, pattern2):
+    """
+    return the path corresponding to the PhotoSession at hand. The path must 
+    be relative to basepath and is formed according to pattern1 if the basepath
+    coincides with the root_basepath (level 0 photosessions), and according to 
+    pattern2 in all other cases (inner photosessions)
+    """
+    pattern = pattern2
+    if basepath == root_basepath:
+        pattern = pattern1
+
+    #do all possible token replacements on the pattern
+    pattern = replace_tokens(pattern, psession, replaceable_tokens)
+    return os.path.join(basepath, pattern)
+    
+def symlink_image(img, basepath, pattern = "%filename"):
+    target = replace_tokens(pattern, img, replaceable_tokens)
+    target = os.path.join(basepath, target)
+    src = img.originalFileName
+    print "linking", src, '->', target
+    try:
+        os.symlink(src, target)
+    except Exception, ex:
+        print ex
+        return False
+
+    return True
+    
+
+def store_image_tree(images, basepath, pathOfSession, imgProxyProcess):
+    """
+    Create the path structure and store the related images on disk.
+    """
+    groups = filter(lambda x: isinstance(x, PhotoSession), images)
+    images = filter(lambda x: isinstance(x, ImageProxy), images)
+
+    for image in images:
+        imgProxyProcess(image, basepath)
+    
+    for group in groups:
+        grouppath = pathOfSession(group, basepath)
+        try:
+            os.makedirs(grouppath)
+        except OSError, ex:
+            if ex.errno == errno.EEXIST:
+                pass
+            else:
+                print ex
+        if group.images:
+            store_image_tree(group.images, grouppath, pathOfSession, imgProxyProcess)
+    
+
 def isLoadableFileType(fname):
     """
     Tests if the file under fname is loadable in an ImageProxy object
@@ -174,7 +244,7 @@ def isLoadableFileType(fname):
     # Check that the file can be opened
     try:
         open(fname)
-    except:
+    except OSError, ex:
         return False
     return True
 
@@ -191,26 +261,28 @@ def loadableFileNames(paths):
         
         #walk directory and pick loadable files
         for root, dirs, files in os.walk(d):
-            allfiles = (join(root, name) for name in files)
+            allfiles = (os.path.join(root, name) for name in files)
             for fname in filter(isLoadableFileType, allfiles):
                 picked_files.add(fname)
     return picked_files
-            
-                
-                
-
-        
+                    
 
 if __name__ == '__main__':
     import sys
     #load some images in ImageProxies
-    images = [ImageProxy(fname.strip(), stop_tag='EXIF DateTimeOriginal') for fname in sys.stdin]
+    filenames = loadableFileNames(sys.argv[1:])
+    images = [ImageProxy(fname.strip(), stop_tag='EXIF DateTimeOriginal') for fname in filenames]
     hours5 = timedelta(0, 5*3600, 0)
-    print len(images), "read"
+    print len(images), "images read"
     
     sessions = cluster_images(images, lambda s,m:by_day(s,m, hours5) )
     for ses in sessions:
         print "---- session start ----"
         for img in ses.images:
             print img
+
+    root_basepath = r'/tmp/images'
+    print "Creating hierarchy under", root_basepath
+    sess_path = lambda ps, bp: pathOfSession(ps, bp, root_basepath, "%Y/%m - %B/%b%d", "%date")
+    store_image_tree(sessions, root_basepath, sess_path, symlink_image)
 
