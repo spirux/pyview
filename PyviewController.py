@@ -208,27 +208,36 @@ class PyviewController(NSObject):
         clustered = ImageProxy.cluster_images(self.dataSource.root, insession, PhotoSessionFactory)
         self.dataSource.root = clustered
         self.refreshView_(None)
+
+    def storeImageHierarchyWorker_(self, progressWindow):
+        pool = NSAutoreleasePool.alloc().init()
+        targetFolder = getPreference("TargetFolder", r'/tmp/images/')
+        
+        #action performed for every image
+        def perImageAction(image, path):
+            progressWindow.safeChangeMessage_(str(image))
+            ImageProxy.symlink_image(image, path)
+            progressWindow.safeIncrementBy_(1)
+            
+        sessionPathProvider = lambda ps, bp: ImageProxy.pathOfSession(ps, bp, targetFolder, "%Y/%m - %B/%b%d", "%date")
+        #do the actual work
+        ImageProxy.store_image_tree(self.dataSource.root, targetFolder, sessionPathProvider, perImageAction)
+        progressWindow.end()
+
             
     @objc.IBAction
     def storeImageHierarchy_(self, sender):
-        pw = ProgressWindowController.alloc().init()
-        target = getPreference("TargetFolder")
-        pw.beginSheet(target, self.window)
-
-        class Dummy(NSObject):
-            def dummy_(self, pw):
-                pool = NSAutoreleasePool.alloc().init()
-                for i in xrange(10):
-                    time.sleep(1)
-                    pw.safeChangeMessage_(str(i))
-                    pw.safeIncrementBy_(10.0)
-                pw.end()
-        dum = Dummy.alloc().init()
+        #find out how many images we are dealing with, to set the max on the progress bar
+        imgCount = ImageProxy.count_images(self.dataSource.root)
         
-        NSThread.detachNewThreadSelector_toTarget_withObject_('dummy:', dum, pw)
+        #start a progress window
+        pw = ProgressWindowController.alloc().init()
+        pw.beginSheet("Storing image hierarchy...", self.window, maxval=imgCount)
+
+        #Run the actual work in a different thread        
+        NSThread.detachNewThreadSelector_toTarget_withObject_('storeImageHierarchyWorker:', self, pw)
         #a = NSAlert.alertWithMessageText_defaultButton_alternateButton_otherButton_informativeTextWithFormat_(u"Not implemented yet", None, None, None, target)
         #a.runModal()
-        print "I'm done..."
     
     ################################################
     # Drag & Drop support

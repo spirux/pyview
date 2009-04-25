@@ -16,7 +16,7 @@
 #
 # To stop processing after a certain tag is retrieved,
 # pass the -t TAG or --stop-tag TAG argument, or as
-#    tags = EXIF.process_file(f, stop_tag='TAG')
+#    tags = EXIF.process_file(f, stop_tags=('TAG1','TAG2'))
 #
 # where TAG is a valid tag name, ex 'DateTimeOriginal'
 #
@@ -369,7 +369,7 @@ EXIF_TAGS = {
     0xA40C: ('SubjectDistanceRange', ),
     0xA500: ('Gamma', ),
     0xC4A5: ('PrintIM', ),
-    0xEA1C:	('Padding', ),
+    0xEA1C:    ('Padding', ),
     }
 
 # interoperability tags
@@ -453,7 +453,7 @@ def nikon_ev_bias(seq):
         ret_str = "-"
     else:
         ret_str = "+"
-    b = seq[2]	# Assume third value means the step size
+    b = seq[2]    # Assume third value means the step size
     whole = a / b
     a = a % b
     if whole != 0:
@@ -467,7 +467,7 @@ def nikon_ev_bias(seq):
 
 # Nikon E99x MakerNote Tags
 MAKERNOTE_NIKON_NEWER_TAGS={
-    0x0001: ('MakernoteVersion', make_string),	# Sometimes binary
+    0x0001: ('MakernoteVersion', make_string),    # Sometimes binary
     0x0002: ('ISOSetting', make_string),
     0x0003: ('ColorMode', ),
     0x0004: ('Quality', ),
@@ -491,7 +491,7 @@ MAKERNOTE_NIKON_NEWER_TAGS={
     0x0019: ('AEBracketCompensationApplied', ),
     0x001A: ('ImageProcessing', ),
     0x001B: ('CropHiSpeed', ),
-    0x001D: ('SerialNumber', ),	# Conflict with 0x00A0 ?
+    0x001D: ('SerialNumber', ),    # Conflict with 0x00A0 ?
     0x001E: ('ColorSpace', ),
     0x001F: ('VRInfo', ),
     0x0020: ('ImageAuthentication', ),
@@ -530,11 +530,11 @@ MAKERNOTE_NIKON_NEWER_TAGS={
               0x42: 'Timer, white balance bracketing'}),
     0x008A: ('AutoBracketRelease', ),
     0x008B: ('LensFStops', ),
-    0x008C: ('NEFCurve1', ),	# ExifTool calls this 'ContrastCurve'
+    0x008C: ('NEFCurve1', ),    # ExifTool calls this 'ContrastCurve'
     0x008D: ('ColorMode', ),
     0x008F: ('SceneMode', ),
     0x0090: ('LightingType', ),
-    0x0091: ('ShotInfo', ),	# First 4 bytes are a version number in ASCII
+    0x0091: ('ShotInfo', ),    # First 4 bytes are a version number in ASCII
     0x0092: ('HueAdjustment', ),
     # ExifTool calls this 'NEFCompression', should be 1-4
     0x0093: ('Compression', ),
@@ -546,9 +546,9 @@ MAKERNOTE_NIKON_NEWER_TAGS={
               1: '1',
               2: '2'}),
     0x0095: ('NoiseReduction', ),
-    0x0096: ('NEFCurve2', ),	# ExifTool calls this 'LinearizationTable'
-    0x0097: ('ColorBalance', ),	# First 4 bytes are a version number in ASCII
-    0x0098: ('LensData', ),	# First 4 bytes are a version number in ASCII
+    0x0096: ('NEFCurve2', ),    # ExifTool calls this 'LinearizationTable'
+    0x0097: ('ColorBalance', ),    # First 4 bytes are a version number in ASCII
+    0x0098: ('LensData', ),    # First 4 bytes are a version number in ASCII
     0x0099: ('RawImageCenter', ),
     0x009A: ('SensorPixelSize', ),
     0x009C: ('Scene Assist', ),
@@ -567,7 +567,7 @@ MAKERNOTE_NIKON_NEWER_TAGS={
     0x00AA: ('Saturation', ),
     0x00AB: ('DigitalVariProgram', ),
     0x00AC: ('ImageStabilization', ),
-    0x00AD: ('Responsive AF', ),	# 'AFResponse'
+    0x00AD: ('Responsive AF', ),    # 'AFResponse'
     0x00B0: ('MultiExposure', ),
     0x00B1: ('HighISONoiseReduction', ),
     0x00B7: ('AFInfo', ),
@@ -1295,8 +1295,10 @@ class EXIF_header:
         return a
 
     # return list of entries in this IFD
-    def dump_IFD(self, ifd, ifd_name, dict=EXIF_TAGS, relative=0, stop_tag='UNDEF'):
+    def dump_IFD(self, ifd, ifd_name, dict=EXIF_TAGS, relative=0, stop_tags=()):
         entries=self.s2n(ifd, 2)
+        stop_tags_length = len(stop_tags)
+        stop_tags_encountered = 0
         for i in range(entries):
             # entry is index of start of this IFD in the file
             entry = ifd + 2 + 12 * i
@@ -1412,8 +1414,10 @@ class EXIF_header:
                     print ' debug:   %s: %s' % (tag_name,
                                                 repr(self.tags[ifd_name + ' ' + tag_name]))
 
-            if tag_name == stop_tag:
-                break
+            if tag_name in stop_tags:
+                stop_tags_encountered += 1
+                if stop_tags_encountered >= stop_tags_length:
+                    break
 
     # extract uncompressed TIFF thumbnail (like pulling teeth)
     # we take advantage of the pre-existing layout in the thumbnail IFD as
@@ -1595,7 +1599,7 @@ class EXIF_header:
 # process an image file (expects an open file object)
 # this is the function that has to deal with all the arbitrary nasty bits
 # of the EXIF standard
-def process_file(f, stop_tag='UNDEF', details=True, strict=False, debug=False):
+def process_file(f, stop_tags=(), details=True, strict=False, debug=False):
     # yah it's cheesy...
     global detailed
     detailed = details
@@ -1646,13 +1650,13 @@ def process_file(f, stop_tag='UNDEF', details=True, strict=False, debug=False):
             IFD_name = 'IFD %d' % ctr
         if debug:
             print ' IFD %d (%s) at offset %d:' % (ctr, IFD_name, i)
-        hdr.dump_IFD(i, IFD_name, stop_tag=stop_tag)
+        hdr.dump_IFD(i, IFD_name, stop_tags=stop_tags)
         # EXIF IFD
         exif_off = hdr.tags.get(IFD_name+' ExifOffset')
         if exif_off:
             if debug:
                 print ' EXIF SubIFD at offset %d:' % exif_off.values[0]
-            hdr.dump_IFD(exif_off.values[0], 'EXIF', stop_tag=stop_tag)
+            hdr.dump_IFD(exif_off.values[0], 'EXIF', stop_tags=stop_tags)
             # Interoperability IFD contained in EXIF IFD
             intr_off = hdr.tags.get('EXIF SubIFD InteroperabilityOffset')
             if intr_off:
@@ -1660,13 +1664,13 @@ def process_file(f, stop_tag='UNDEF', details=True, strict=False, debug=False):
                     print ' EXIF Interoperability SubSubIFD at offset %d:' \
                           % intr_off.values[0]
                 hdr.dump_IFD(intr_off.values[0], 'EXIF Interoperability',
-                             dict=INTR_TAGS, stop_tag=stop_tag)
+                             dict=INTR_TAGS, stop_tags=stop_tags)
         # GPS IFD
         gps_off = hdr.tags.get(IFD_name+' GPSInfo')
         if gps_off:
             if debug:
                 print ' GPS SubIFD at offset %d:' % gps_off.values[0]
-            hdr.dump_IFD(gps_off.values[0], 'GPS', dict=GPS_TAGS, stop_tag=stop_tag)
+            hdr.dump_IFD(gps_off.values[0], 'GPS', dict=GPS_TAGS, stop_tags=stop_tags)
         ctr += 1
 
     # extract uncompressed TIFF thumbnail
@@ -1722,7 +1726,7 @@ if __name__ == '__main__':
     if args == []:
         usage(2)
     detailed = True
-    stop_tag = 'UNDEF'
+    stop_tags = ()
     debug = False
     strict = False
     for o, a in opts:
@@ -1731,7 +1735,7 @@ if __name__ == '__main__':
         if o in ("-q", "--quick"):
             detailed = False
         if o in ("-t", "--stop-tag"):
-            stop_tag = a
+            stop_tags = (a,)
         if o in ("-s", "--strict"):
             strict = True
         if o in ("-d", "--debug"):
@@ -1746,7 +1750,7 @@ if __name__ == '__main__':
             continue
         print filename + ':'
         # get the tags
-        data = process_file(file, stop_tag=stop_tag, details=detailed, strict=strict, debug=debug)
+        data = process_file(file, stop_tags=stop_tags, details=detailed, strict=strict, debug=debug)
         if not data:
             print 'No EXIF information found'
             continue

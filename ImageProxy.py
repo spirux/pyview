@@ -41,9 +41,10 @@ def parse_exif_time(timestring, format = '%Y:%m:%d %H:%M:%S'):
 class ImageProxy(ObjectBase):
     isExpandable = False
     
-    def __init__(self, fname, stop_tag = None):
+    def __init__(self, fname, stop_tags = ()):
+        #named arguments for EXIF.process_file
         named = {'details':False}
-        if stop_tag: named['stop_tag'] = stop_tag
+        if stop_tags: named['stop_tags'] = stop_tags
         file = open(fname,'rb')
         #Initialize members
         self.tags = EXIF.process_file(file, **named)
@@ -177,7 +178,10 @@ def replace_tokens(pattern, obj, repl_tokens = replaceable_tokens):
             pattern = pattern.replace(token, val)
 
     #perform date related replacements, exactly like in strftime
-    pattern = obj.date.strftime(pattern)
+    if isinstance(pattern, unicode):
+        pattern = obj.date.strftime(pattern.encode('UTF-8')).decode('UTF-8')
+    else:
+        pattern = obj.date.strftime(pattern)
     return pattern
 
 def pathOfSession(psession, basepath, root_basepath, pattern1, pattern2):
@@ -265,13 +269,18 @@ def loadableFileNames(paths):
             for fname in filter(isLoadableFileType, allfiles):
                 picked_files.add(fname)
     return picked_files
-                    
+       
+def count_images(tree):
+    images = len(filter(lambda x: isinstance(x, ImageProxy), tree))
+    for group in filter(lambda x: isinstance(x, PhotoSession), tree):
+        images += count_images(group.images)
+    return images
 
 if __name__ == '__main__':
     import sys
     #load some images in ImageProxies
     filenames = loadableFileNames(sys.argv[1:])
-    images = [ImageProxy(fname.strip(), stop_tag='EXIF DateTimeOriginal') for fname in filenames]
+    images = [ImageProxy(fname.strip(), stop_tags=('DateTimeOriginal',)) for fname in filenames]
     hours5 = timedelta(0, 5*3600, 0)
     print len(images), "images read"
     
