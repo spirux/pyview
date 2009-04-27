@@ -73,7 +73,7 @@ class OutlineViewDS (NSObject):
 		if not self.outlineView: self.outlineView = view
 		if item is None:
 			return len(self.root)
-		return len(item.images)
+		return len(item)
 			
 	def outlineView_isItemExpandable_(self, view, item):
 		if item is None:
@@ -87,7 +87,7 @@ class OutlineViewDS (NSObject):
 	def outlineView_child_ofItem_(self, view, index, item):
 		if item is None:
 			return self.root[index]
-		return item.images[index]
+		return item[index]
 	
 	def outlineView_objectValueForTableColumn_byItem_(self, view, tableColumn, item):
 		attrib = str(tableColumn.identifier())
@@ -151,10 +151,10 @@ class OutlineViewDS (NSObject):
 	# Helper functions
 	#
 def is_descendent_of(root, item):
-	if (root is item) or (root.isExpandable and item in root.images):
+	if (root is item) or (root.isExpandable and item in root):
 		return True 
 	elif root.isExpandable:
-		return any(is_descendent_of(child, item) for child in root.images)
+		return any(is_descendent_of(child, item) for child in root)
 	return False
 	
 def common_prefix_length(iterables):

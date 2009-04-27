@@ -192,7 +192,7 @@ class PyviewController(NSObject):
         #move images to parents
         for group in selected:
             parent = parents[group]
-            for image in group.images:
+            for image in group:
                 parent.append(image)
         
         #unlink the removed groups
@@ -258,7 +258,6 @@ class PyviewController(NSObject):
         
     def draggingExited_(self, sender):
         self.dragged_files = None
-        print "Oh, you changed your mind. It's OK."
     
     def performDragOperation_(self, sender):
         if self.dragged_files:

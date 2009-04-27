@@ -78,33 +78,38 @@ class ImageProxy(ObjectBase):
                 lines.append(': '.join( (tag, str(self.tags[tag])) ))
         return '\n'.join(lines)
 
+
 class PhotoSession(ObjectBase):
     """
-    A set of related images.
+    A group of images or Photosessions. It also can hold some properties (keywords, comments, etc.)
+    common for all its children
     """
     isExpandable = True
     def __init__(self):
-        self.images = []
+        self._images = []
         self._name = None
+        self._keywords = []
+        self._comment = None
+        self.consistent = False
     
     #TODO implement caching/maintenance of dates for better efficiency
     @property
     def startDate(self):
-        if len(self.images):
-            return min(self.images, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
+        if len(self._images):
+            return min(self._images, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
         return datetime.now()
     
     date = startDate
     
     @property
     def endDate(self):
-        if len(self.images):
-            return max(self.images, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
+        if len(self._images):
+            return max(self._images, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
         return datetime.now()
     
     def getName(self):
         if self._name is None:
-            return self.date.strftime("%y-%m-%d")
+            return self.date.strftime("Session-%y-%m-%d")
         return self._name
         
     def setName(self, name):
@@ -112,23 +117,47 @@ class PhotoSession(ObjectBase):
     
     #access name as a property
     name = property(getName, setName)
-    del setName
-    del getName
-        
+    del setName, getName
+    
+    # defer the other attributes to the first object that we own
     def __getattr__(self, name):
-        if self.images:
-            return getattr(self.images[0], name)
+        if self._images:
+            return getattr(self._images[0], name)
         else:
             raise AttributeError("PhotoSession object contains no image to defer attribute access.")
-        
+
+    # we give a list-like interface for access to our contents 
     def append(self, image):
-        self.images.append(image)
+        return self._images.append(image)
     
     def insert(self, index, item):
-        self.images.insert(index, item)
+        return self._images.insert(index, item)
     
     def remove(self, image):
-        self.images.remove(image)
+        return self._images.remove(image)
+    
+    def __contains__(self, image):
+        return image in self._images
+        
+    def __delitem__(self, itemno):
+        return self._images.__delitem__(itemno)
+        
+    def __getitem__(self, itemno):
+        return self._images[itemno]
+        
+    def __setitem__(self, itemno, val):
+        self._images[itemno] = val
+        
+    def __iter__(self):
+        return iter(self._images)
+        
+    def __len__(self):
+        return len(self._images)
+    
+    def __str__(self):
+        return "PhotoSession(" + self.name + ")"
+    
+    
 
 def by_day(img, session, mindelta = timedelta(0)):
     """
@@ -213,12 +242,12 @@ def symlink_image(img, basepath, pattern = "%filename"):
     return True
     
 
-def store_image_tree(images, basepath, pathOfSession, imgProxyProcess):
+def store_image_tree(root, basepath, pathOfSession, imgProxyProcess):
     """
     Create the path structure and store the related images on disk.
     """
-    groups = filter(lambda x: isinstance(x, PhotoSession), images)
-    images = filter(lambda x: isinstance(x, ImageProxy), images)
+    groups = filter(lambda x: isinstance(x, PhotoSession), root)
+    images = filter(lambda x: isinstance(x, ImageProxy), root)
 
     for image in images:
         imgProxyProcess(image, basepath)
@@ -232,8 +261,8 @@ def store_image_tree(images, basepath, pathOfSession, imgProxyProcess):
                 pass
             else:
                 print ex
-        if group.images:
-            store_image_tree(group.images, grouppath, pathOfSession, imgProxyProcess)
+        if group:
+            store_image_tree(group, grouppath, pathOfSession, imgProxyProcess)
     
 
 def isLoadableFileType(fname):
@@ -273,7 +302,7 @@ def loadableFileNames(paths):
 def count_images(tree):
     images = len(filter(lambda x: isinstance(x, ImageProxy), tree))
     for group in filter(lambda x: isinstance(x, PhotoSession), tree):
-        images += count_images(group.images)
+        images += count_images(group)
     return images
 
 if __name__ == '__main__':
@@ -287,7 +316,7 @@ if __name__ == '__main__':
     sessions = cluster_images(images, lambda s,m:by_day(s,m, hours5) )
     for ses in sessions:
         print "---- session start ----"
-        for img in ses.images:
+        for img in ses:
             print img
 
     root_basepath = r'/tmp/images'
