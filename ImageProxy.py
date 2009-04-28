@@ -53,6 +53,8 @@ class ImageProxy(ObjectBase):
         
         #some attributes for the outline view
         self.name = basename(fname)
+        self.keywords = set()
+        self.comment = ""
         
     def __str__(self):
         return  self.date.isoformat() + ": " + self.name
@@ -79,6 +81,15 @@ class ImageProxy(ObjectBase):
         return '\n'.join(lines)
 
 
+def refresh_if_invalid(method):
+    "Decorator that refreshes an object before permitting its method to execute"
+    def wrapped(self, *args, **kwargs):
+        if not self._valid_caches:
+            self.refresh()
+        return method(self, *args, **kwargs)
+    return wrapped
+
+
 class PhotoSession(ObjectBase):
     """
     A group of images or Photosessions. It also can hold some properties (keywords, comments, etc.)
@@ -88,37 +99,89 @@ class PhotoSession(ObjectBase):
     def __init__(self):
         self._images = []
         self._name = None
-        self._keywords = []
-        self._comment = None
-        self.consistent = False
+        self.comment = ""
+        self._valid_caches = False
+        #these items are cached
+        self._keywords = set([])
+        self._start_date = None
+        self._end_date = None
+        
+    def invalidate(self):
+        "Invalidate cached attributes of the class, such as keywords and start/end times"
+        self._valid_caches = False
+        
+    def refresh(self):
+        "Refresh cached attributes of the class, such as keywords and start/end times"
+        self._valid_caches = True
+        
+        if self._images:
+            self._start_date = min(self._images, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
+            self._end_date = max(self._images, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
+            #keywords_intersection = lambda a,b: set.intersection(a.keywords, b.keywords)
+            self._keywords = self._images[0].keywords
+            for img in self._images[1:]:
+                self._keywords.intersection_update(img.keywords)
+        else:
+            self._start_date = self._end_date = None
+            self._keywords = set()
+        return datetime.now()
     
-    #TODO implement caching/maintenance of dates for better efficiency
+    def maintain_cached_properties(self, newobject):
+        if self._valid_caches:
+            if newobject.date < self._start_date:
+                self._start_date = newobject.date
+            if newobject.date > self._end_date:
+                self._end_date = newobject.date
+            try:
+                self._keywords.intersection_update(newobject.keywords)
+            except:
+                print  self._keywords, newobject.keywords, newobject
+                raise
+    
     @property
+    @refresh_if_invalid
     def startDate(self):
-        if len(self._images):
-            return min(self._images, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
+        if self._start_date:
+            return self._start_date
         return datetime.now()
     
     date = startDate
     
     @property
+    @refresh_if_invalid
     def endDate(self):
-        if len(self._images):
-            return max(self._images, key = lambda a:a.dateTimeOriginal).dateTimeOriginal
+        if self._end_date:
+            return self._end_date
         return datetime.now()
     
-    def getName(self):
+    def get_name(self):
         if self._name is None:
             return self.date.strftime("Session-%y-%m-%d")
         return self._name
         
-    def setName(self, name):
+    def set_name(self, name):
         self._name = name
     
     #access name as a property
-    name = property(getName, setName)
-    del setName, getName
+    name = property(get_name, set_name)
+    del get_name, set_name
     
+    @refresh_if_invalid
+    def get_keywords(self):
+        return self._keywords
+    
+    def set_keywords(self, kw):
+        self._keywords = set(kw)
+        #If keywords is empty, do nothing
+        if not self._keywords:
+            return
+        #propagate change in keywords
+        for img in self:
+            img.keywords = set.union(img.keywords, self._keywords)
+
+    keywords = property(get_keywords, set_keywords)
+    del get_keywords, set_keywords
+        
     # defer the other attributes to the first object that we own
     def __getattr__(self, name):
         if self._images:
@@ -128,24 +191,29 @@ class PhotoSession(ObjectBase):
 
     # we give a list-like interface for access to our contents 
     def append(self, image):
+        self.maintain_cached_properties(image)
         return self._images.append(image)
     
     def insert(self, index, item):
+        self.maintain_cached_properties(image)
         return self._images.insert(index, item)
     
     def remove(self, image):
+        self.invalidate()
         return self._images.remove(image)
     
     def __contains__(self, image):
         return image in self._images
         
     def __delitem__(self, itemno):
+        self.invalidate()
         return self._images.__delitem__(itemno)
         
     def __getitem__(self, itemno):
         return self._images[itemno]
         
     def __setitem__(self, itemno, val):
+        self.invalidate()
         self._images[itemno] = val
         
     def __iter__(self):
@@ -175,14 +243,14 @@ def by_month(img, session, mindelta = timedelta(0)):
 def by_timespan(img, session, mindelta = timedelta(0)):
     return (img.date - session.endDate) <= mindelta
 
-def cluster_images(images, belongs_rule, sessionFactory = PhotoSession):
+def cluster_images(images, belongs_rule, sessionFactory = PhotoSession, sort_key = lambda a:a.date):
     """
     Cluster images in photo sessions and return a list of PhotoSessions
     """
     all_sessions = []
     s = None
     #examine objects in chronological order    
-    for img in sorted(images, key = lambda a:a.date):
+    for img in sorted(images, key = sort_key):
         # leave existing sessions unaltered
         if isinstance(img, PhotoSession):
             all_sessions.append(img)
@@ -304,7 +372,7 @@ def count_images(tree):
     for group in filter(lambda x: isinstance(x, PhotoSession), tree):
         images += count_images(group)
     return images
-
+    
 if __name__ == '__main__':
     import sys
     #load some images in ImageProxies

@@ -133,13 +133,6 @@ class PyviewController(NSObject):
             self.load_images_(dialog.filenames())
 
     @objc.IBAction
-    def toggleExifPanel_(self, sender):
-        if self.exifPanel.isVisible():
-            self.exifPanel.orderOut_(self)
-        else:
-            self.exifPanel.orderFront_(self)
-
-    @objc.IBAction
     def removeSelected_(self, sender):
         modified = set()
         

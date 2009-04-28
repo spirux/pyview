@@ -10,7 +10,7 @@ import objc
 import AppKit
 from Foundation import *
 
-NSStringify = lambda s: NSString.alloc().initWithString_(s) 
+NSStringify = lambda s: NSString.stringWithString_(unicode(s)) 
 
 class OutlineViewDS (NSObject):
 	"""
@@ -92,7 +92,10 @@ class OutlineViewDS (NSObject):
 	def outlineView_objectValueForTableColumn_byItem_(self, view, tableColumn, item):
 		attrib = str(tableColumn.identifier())
 		value = getattr(item, attrib, "n/a")
-		return NSStringify(str(value))
+		#for sets, we want a custom formatting of comma separated values
+		if isinstance(value, set):
+			value = u', '.join(value)
+		return NSStringify(value)
 
 	def outlineView_shouldSelectItem_(self, view, item):
 		"Notify our master that an item was selected"
