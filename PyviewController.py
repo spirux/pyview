@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #
 #  PyviewController.py
 #  Pyview
@@ -108,12 +109,11 @@ class PyviewController(NSObject):
             #show image
             self.show_image_from_path(filename)
             #initialize text box with exif data
-            strexif = unicode(imgProxy.human_readable_tags())
+            strexif = unicode(imgProxy.human_readable_tags(), "UTF-8")
             self.exifLabel.setString_(strexif)
             NSLog(u"Changed to filename: %s" % filename)
         except Exception, ex:
-            print ex, "With imgProxy:", imgProxy
-
+            print ex, "With imgProxy:", unicode(imgProxy).encode('UTF-8')
 
     @objc.IBAction
     def menuOpen_(self, sender):

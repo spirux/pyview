@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #
 #  OutlineViewDS.py
 #  Pyview
@@ -148,8 +149,29 @@ class OutlineViewDS (NSObject):
 		
 		
 	# Method needed to allow editing.
-	def outlineView_setObjectValue_forTableColumn_byItem_(self, view, obj, columns, item):
-		print "Setname called with", str(obj)
+	def outlineView_setObjectValue_forTableColumn_byItem_(self, view, value, column, item):
+		attrib = str(column.identifier())
+		
+		#for sets, we want a custom formatting of comma separated values
+		if attrib in ('keywords'):
+			value = set(s.strip() for s in value.split(','))
+		try:
+			setattr(item, attrib, value)
+		except Exception, ex:
+			print ex
+			
+	# sorting by columns
+	def outlineView_sortDescriptorsDidChange_(self, view, oldDescriptors):
+		print "outlineView_sortDescriptorsDidChange_"
+		sortdescr = view.sortDescriptors()
+		sortInfo = [
+            (item.key(), item.ascending(), item.selector())
+                for item in view.sortDescriptors()
+		]
+
+		#[(u'name', True, 'compare:')]
+		print sortInfo
+
 	#
 	# Helper functions
 	#

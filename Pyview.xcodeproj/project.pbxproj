@@ -11,6 +11,7 @@
 		340C82C10F97EA29009EDF61 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340C82BF0F97EA29009EDF61 /* PreferencesWindow.xib */; };
 		341F87B90F8B894C0052AA18 /* OpaqueView.py in Resources */ = {isa = PBXBuildFile; fileRef = 341F87B80F8B894C0052AA18 /* OpaqueView.py */; };
 		343445200F7E8AF700A6ACE7 /* ImageProxy.py in Resources */ = {isa = PBXBuildFile; fileRef = 3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */; };
+		343622A50FAF669700603884 /* ExiftoolBridge.py in Resources */ = {isa = PBXBuildFile; fileRef = 343622A40FAF669700603884 /* ExiftoolBridge.py */; };
 		344A48F00F78068100A7E838 /* PyviewController.py in Resources */ = {isa = PBXBuildFile; fileRef = 344A48EF0F78068100A7E838 /* PyviewController.py */; };
 		345AF73B0F9D12FA009709D3 /* ProgressSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 345AF73A0F9D12FA009709D3 /* ProgressSheet.xib */; };
 		345AF7580F9D20A5009709D3 /* ProgressWindowController.py in Resources */ = {isa = PBXBuildFile; fileRef = 345AF7570F9D20A5009709D3 /* ProgressWindowController.py */; };
@@ -44,6 +45,7 @@
 		340C82C00F97EA29009EDF61 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
 		341F87B80F8B894C0052AA18 /* OpaqueView.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = OpaqueView.py; sourceTree = "<group>"; };
 		3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ImageProxy.py; sourceTree = "<group>"; usesTabs = 0; };
+		343622A40FAF669700603884 /* ExiftoolBridge.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ExiftoolBridge.py; sourceTree = "<group>"; };
 		344A48EF0F78068100A7E838 /* PyviewController.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PyviewController.py; sourceTree = "<group>"; usesTabs = 0; };
 		345AF73A0F9D12FA009709D3 /* ProgressSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressSheet.xib; sourceTree = "<group>"; };
 		345AF7570F9D20A5009709D3 /* ProgressWindowController.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ProgressWindowController.py; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				347086E70F9A0AB700BD1025 /* Prefs */,
 				34CED0E70F8CE573000CEF9E /* EXIF.py */,
 				7790198E0C07548A00326F66 /* PyviewAppDelegate.py */,
+				343622A40FAF669700603884 /* ExiftoolBridge.py */,
 				344A48EF0F78068100A7E838 /* PyviewController.py */,
 				3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */,
 				34AFCCED0F88E70000A6CEEA /* OutlineViewDS.py */,
@@ -248,6 +251,7 @@
 				34CC7D480F9BF92F003557FC /* TODO in Resources */,
 				345AF73B0F9D12FA009709D3 /* ProgressSheet.xib in Resources */,
 				345AF7580F9D20A5009709D3 /* ProgressWindowController.py in Resources */,
+				343622A50FAF669700603884 /* ExiftoolBridge.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

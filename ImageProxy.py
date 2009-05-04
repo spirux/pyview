@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #
 #  ImageProxy.py
 #  Pyview
@@ -77,7 +78,7 @@ class ImageProxy(ObjectBase):
         lines = []
         for tag in self.tags.keys():
             if tag not in ('JPEGThumbnail', 'TIFFThumbnail', 'EXIF MakerNote'):
-                lines.append(': '.join( (tag, str(self.tags[tag])) ))
+                lines.append(': '.join( (tag, unicode(self.tags[tag])) ))
         return '\n'.join(lines)
 
 
@@ -171,13 +172,12 @@ class PhotoSession(ObjectBase):
         return self._keywords
     
     def set_keywords(self, kw):
+        previous = self._keywords
         self._keywords = set(kw)
-        #If keywords is empty, do nothing
-        if not self._keywords:
-            return
+        removed = previous - self._keywords
         #propagate change in keywords
         for img in self:
-            img.keywords = set.union(img.keywords, self._keywords)
+            img.keywords = set.union(img.keywords, self._keywords) - removed
 
     keywords = property(get_keywords, set_keywords)
     del get_keywords, set_keywords
@@ -243,18 +243,30 @@ def by_month(img, session, mindelta = timedelta(0)):
 def by_timespan(img, session, mindelta = timedelta(0)):
     return (img.date - session.endDate) <= mindelta
 
-def cluster_images(images, belongs_rule, sessionFactory = PhotoSession, sort_key = lambda a:a.date):
+def cluster_images(images, belongs_rule,
+    sessionFactory = PhotoSession,
+    sort_key = lambda a:a.date,
+    existing_sessions = 'retain'):
     """
     Cluster images in photo sessions and return a list of PhotoSessions
     """
     all_sessions = []
     s = None
-    #examine objects in chronological order    
+    assert existing_sessions in ('retain', 'enrich', 'nest')
+    #examine objects in chronological order
     for img in sorted(images, key = sort_key):
-        # leave existing sessions unaltered
+        # existing sessions may be retained unchainged,
+        # enriched with more images or treated as images and be nested
+        # in other sessions
         if isinstance(img, PhotoSession):
-            all_sessions.append(img)
-            continue
+            if existing_sessions == 'retain':
+                all_sessions.append(img)
+                continue
+            elif existing_sessions == 'enrich':
+                all_sessions.append(img)
+                s = img
+            else: 
+                assert existing_sessions == 'nest'
         
         if s and belongs_rule(img, s):
             s.append(img)

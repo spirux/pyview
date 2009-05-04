@@ -8,8 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="371"/>
 			<integer value="296"/>
+			<integer value="446"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1323,13 +1323,13 @@ AAAAAAAAAAAAAA</bytes>
 														<object class="NSOutlineView" id="809288042">
 															<reference key="NSNextResponder" ref="562655455"/>
 															<int key="NSvFlags">256</int>
-															<string key="NSFrameSize">{656, 79}</string>
+															<string key="NSFrameSize">{623, 79}</string>
 															<reference key="NSSuperview" ref="562655455"/>
 															<bool key="NSEnabled">YES</bool>
 															<object class="NSTableHeaderView" key="NSHeaderView" id="926419481">
 																<reference key="NSNextResponder" ref="247911839"/>
 																<int key="NSvFlags">256</int>
-																<string key="NSFrameSize">{656, 17}</string>
+																<string key="NSFrameSize">{623, 17}</string>
 																<reference key="NSSuperview" ref="247911839"/>
 																<reference key="NSTableView" ref="809288042"/>
 															</object>
@@ -1399,6 +1399,11 @@ AAAAAAAAAAAAAA</bytes>
 																	<bool key="NSIsResizeable">YES</bool>
 																	<bool key="NSIsEditable">YES</bool>
 																	<reference key="NSTableView" ref="809288042"/>
+																	<object class="NSSortDescriptor" key="NSSortDescriptorPrototype">
+																		<string key="NSKey">name</string>
+																		<bool key="NSAscending">YES</bool>
+																		<string key="NSSelector">compare:</string>
+																	</object>
 																</object>
 																<object class="NSTableColumn" id="721542">
 																	<string key="NSIdentifier">date</string>
@@ -1429,8 +1434,12 @@ AAAAAAAAAAAAAA</bytes>
 																	</object>
 																	<int key="NSResizingMask">3</int>
 																	<bool key="NSIsResizeable">YES</bool>
-																	<bool key="NSIsEditable">YES</bool>
 																	<reference key="NSTableView" ref="809288042"/>
+																	<object class="NSSortDescriptor" key="NSSortDescriptorPrototype">
+																		<string key="NSKey">date</string>
+																		<bool key="NSAscending">YES</bool>
+																		<string key="NSSelector">compare:</string>
+																	</object>
 																</object>
 																<object class="NSTableColumn" id="34339621">
 																	<string key="NSIdentifier">keywords</string>
@@ -1466,10 +1475,15 @@ AAAAAAAAAAAAAA</bytes>
 																	<bool key="NSIsResizeable">YES</bool>
 																	<bool key="NSIsEditable">YES</bool>
 																	<reference key="NSTableView" ref="809288042"/>
+																	<object class="NSSortDescriptor" key="NSSortDescriptorPrototype">
+																		<string key="NSKey">keywords</string>
+																		<bool key="NSAscending">YES</bool>
+																		<string key="NSSelector">compare:</string>
+																	</object>
 																</object>
 																<object class="NSTableColumn" id="1001679766">
 																	<string key="NSIdentifier">comment</string>
-																	<double key="NSWidth">1.810000e+02</double>
+																	<double key="NSWidth">1.480000e+02</double>
 																	<double key="NSMinWidth">1.000000e+01</double>
 																	<double key="NSMaxWidth">3.402823e+38</double>
 																	<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -1493,6 +1507,11 @@ AAAAAAAAAAAAAA</bytes>
 																	<bool key="NSIsResizeable">YES</bool>
 																	<bool key="NSIsEditable">YES</bool>
 																	<reference key="NSTableView" ref="809288042"/>
+																	<object class="NSSortDescriptor" key="NSSortDescriptorPrototype">
+																		<string key="NSKey">comment</string>
+																		<bool key="NSAscending">YES</bool>
+																		<string key="NSSelector">compare:</string>
+																	</object>
 																</object>
 															</object>
 															<double key="NSIntercellSpacingWidth">2.000000e+00</double>
@@ -1516,7 +1535,6 @@ AAAAAAAAAAAAAA</bytes>
 														</object>
 													</object>
 													<string key="NSFrame">{{1, 17}, {623, 79}}</string>
-													<string key="NSBounds">{{33, 0}, {623, 79}}</string>
 													<reference key="NSSuperview" ref="464925201"/>
 													<reference key="NSNextKeyView" ref="809288042"/>
 													<reference key="NSDocView" ref="809288042"/>
@@ -1537,7 +1555,6 @@ AAAAAAAAAAAAAA</bytes>
 													<int key="NSvFlags">256</int>
 													<string key="NSFrame">{{1, 96}, {623, 15}}</string>
 													<reference key="NSSuperview" ref="464925201"/>
-													<bool key="NSEnabled">YES</bool>
 													<int key="NSsFlags">1</int>
 													<reference key="NSTarget" ref="464925201"/>
 													<string key="NSAction">_doScroller:</string>
@@ -1552,7 +1569,6 @@ AAAAAAAAAAAAAA</bytes>
 														<reference ref="926419481"/>
 													</object>
 													<string key="NSFrame">{{1, 0}, {623, 17}}</string>
-													<string key="NSBounds">{{33, 0}, {623, 17}}</string>
 													<reference key="NSSuperview" ref="464925201"/>
 													<reference key="NSNextKeyView" ref="926419481"/>
 													<reference key="NSDocView" ref="926419481"/>
@@ -1564,7 +1580,7 @@ AAAAAAAAAAAAAA</bytes>
 											<string key="NSFrameSize">{640, 112}</string>
 											<reference key="NSSuperview" ref="94896403"/>
 											<reference key="NSNextKeyView" ref="562655455"/>
-											<int key="NSsFlags">178</int>
+											<int key="NSsFlags">50</int>
 											<reference key="NSVScroller" ref="442461459"/>
 											<reference key="NSHScroller" ref="145276084"/>
 											<reference key="NSContentView" ref="562655455"/>
@@ -1696,6 +1712,7 @@ AAAAAAAAAAAAAA</bytes>
 									</object>
 									<string key="NSFrame">{{1, 1}, {261, 378}}</string>
 									<reference key="NSSuperview" ref="296989381"/>
+									<reference key="NSNextKeyView" ref="791541370"/>
 									<reference key="NSDocView" ref="791541370"/>
 									<reference key="NSBGColor" ref="501888658"/>
 									<object class="NSCursor" key="NSCursor">
@@ -1727,6 +1744,7 @@ AAAAAAAAAAAAAA</bytes>
 							</object>
 							<string key="NSFrame">{{-1, 20}, {278, 380}}</string>
 							<reference key="NSSuperview" ref="614583404"/>
+							<reference key="NSNextKeyView" ref="286166337"/>
 							<int key="NSsFlags">18</int>
 							<reference key="NSVScroller" ref="378259176"/>
 							<reference key="NSHScroller" ref="231947044"/>
