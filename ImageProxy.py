@@ -7,7 +7,7 @@
 #  Created by spirux on 28/03/2009.
 #  Copyright (c) 2009 __MyCompanyName__. All rights reserved.
 #
-import EXIF
+from ExiftoolBridge import *
 from datetime import datetime, timedelta
 import os, errno
 from os.path import basename, isdir
@@ -39,16 +39,24 @@ except ImportError:
 def parse_exif_time(timestring, format = '%Y:%m:%d %H:%M:%S'):
     return datetime.strptime(timestring, format)
 
+def ImageProxies(filenames, exiftool = 'exiftool'):
+    # Get the tags for every filename
+    for fname, tags in exiftool_read(filenames, exiftool):
+        if ObjectBase is object:
+            yield ImageProxy(fname, tags)
+        else:
+            #If it's an objective C managed object, we need to alloc it
+            ip = ImageProxy.alloc().init()
+            ip.__init__(fname, tags)
+            yield ip
+
+
 class ImageProxy(ObjectBase):
     isExpandable = False
     
-    def __init__(self, fname, stop_tags = ()):
-        #named arguments for EXIF.process_file
-        named = {'details':False}
-        if stop_tags: named['stop_tags'] = stop_tags
-        file = open(fname,'rb')
+    def __init__(self, fname, tags):
         #Initialize members
-        self.tags = EXIF.process_file(file, **named)
+        self.tags = tags
         self.dt_original = None
         self.originalFileName = fname
         
@@ -389,7 +397,7 @@ if __name__ == '__main__':
     import sys
     #load some images in ImageProxies
     filenames = loadableFileNames(sys.argv[1:])
-    images = [ImageProxy(fname.strip(), stop_tags=('DateTimeOriginal',)) for fname in filenames]
+    images = [ip for ip in ImageProxies(filenames)]
     hours5 = timedelta(0, 5*3600, 0)
     print len(images), "images read"
     

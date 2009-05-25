@@ -72,9 +72,7 @@ class PyviewController(NSObject):
         progressWindow = args[1]
         step = 100.0 / len(filenames) #step for the progress bar
         newitems = []
-        for fname in filenames:
-            img = ImageProxy.ImageProxy.alloc().init()
-            img.__init__(fname)
+        for img in ImageProxy.ImageProxies(filenames):
             newitems.append(img)
             progressWindow.safeIncrementBy_(step)
         self.dataSource.root += newitems

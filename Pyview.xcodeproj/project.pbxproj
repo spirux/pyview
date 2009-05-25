@@ -23,7 +23,6 @@
 		34CC7C590F9A42B8003557FC /* hdsave.icns in Resources */ = {isa = PBXBuildFile; fileRef = 34CC7C580F9A42B8003557FC /* hdsave.icns */; };
 		34CC7CAA0F9B89E5003557FC /* Preferences.py in Resources */ = {isa = PBXBuildFile; fileRef = 34CC7CA90F9B89E5003557FC /* Preferences.py */; };
 		34CC7D480F9BF92F003557FC /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 34CC7D470F9BF92F003557FC /* TODO */; };
-		34CED0E80F8CE573000CEF9E /* EXIF.py in Resources */ = {isa = PBXBuildFile; fileRef = 34CED0E70F8CE573000CEF9E /* EXIF.py */; };
 		77631A270C06C501005415CB /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77631A260C06C501005415CB /* Python.framework */; };
 		77631A3F0C0748CF005415CB /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = 77631A3E0C0748CF005415CB /* main.py */; };
 		7790198F0C07548A00326F66 /* PyviewAppDelegate.py in Resources */ = {isa = PBXBuildFile; fileRef = 7790198E0C07548A00326F66 /* PyviewAppDelegate.py */; };
@@ -45,7 +44,7 @@
 		340C82C00F97EA29009EDF61 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
 		341F87B80F8B894C0052AA18 /* OpaqueView.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = OpaqueView.py; sourceTree = "<group>"; };
 		3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ImageProxy.py; sourceTree = "<group>"; usesTabs = 0; };
-		343622A40FAF669700603884 /* ExiftoolBridge.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ExiftoolBridge.py; sourceTree = "<group>"; };
+		343622A40FAF669700603884 /* ExiftoolBridge.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ExiftoolBridge.py; sourceTree = "<group>"; usesTabs = 0; };
 		344A48EF0F78068100A7E838 /* PyviewController.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PyviewController.py; sourceTree = "<group>"; usesTabs = 0; };
 		345AF73A0F9D12FA009709D3 /* ProgressSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressSheet.xib; sourceTree = "<group>"; };
 		345AF7570F9D20A5009709D3 /* ProgressWindowController.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ProgressWindowController.py; sourceTree = "<group>"; };
@@ -57,7 +56,6 @@
 		34CC7C580F9A42B8003557FC /* hdsave.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = hdsave.icns; sourceTree = "<group>"; };
 		34CC7CA90F9B89E5003557FC /* Preferences.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Preferences.py; sourceTree = "<group>"; };
 		34CC7D470F9BF92F003557FC /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
-		34CED0E70F8CE573000CEF9E /* EXIF.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = EXIF.py; sourceTree = "<group>"; usesTabs = 0; };
 		77631A260C06C501005415CB /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = /System/Library/Frameworks/Python.framework; sourceTree = "<absolute>"; };
 		77631A3E0C0748CF005415CB /* main.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
 		7790198E0C07548A00326F66 /* PyviewAppDelegate.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = PyviewAppDelegate.py; sourceTree = "<group>"; usesTabs = 0; };
@@ -84,12 +82,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				348F9BF30FCB47DA0046A309 /* Backend */,
 				347086E70F9A0AB700BD1025 /* Prefs */,
-				34CED0E70F8CE573000CEF9E /* EXIF.py */,
 				7790198E0C07548A00326F66 /* PyviewAppDelegate.py */,
-				343622A40FAF669700603884 /* ExiftoolBridge.py */,
 				344A48EF0F78068100A7E838 /* PyviewController.py */,
-				3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */,
 				34AFCCED0F88E70000A6CEEA /* OutlineViewDS.py */,
 				341F87B80F8B894C0052AA18 /* OpaqueView.py */,
 				345AF7570F9D20A5009709D3 /* ProgressWindowController.py */,
@@ -180,6 +176,15 @@
 			name = Prefs;
 			sourceTree = "<group>";
 		};
+		348F9BF30FCB47DA0046A309 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				343622A40FAF669700603884 /* ExiftoolBridge.py */,
+				3434451F0F7E8AF700A6ACE7 /* ImageProxy.py */,
+			);
+			name = Backend;
+			sourceTree = "<group>";
+		};
 		34CC7C5A0F9A42BC003557FC /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,7 +247,6 @@
 				3401922D0F7FB30300D7D3FA /* exificon.icns in Resources */,
 				34AFCCEE0F88E70000A6CEEA /* OutlineViewDS.py in Resources */,
 				341F87B90F8B894C0052AA18 /* OpaqueView.py in Resources */,
-				34CED0E80F8CE573000CEF9E /* EXIF.py in Resources */,
 				340C82C10F97EA29009EDF61 /* PreferencesWindow.xib in Resources */,
 				347086E90F9A0B2000BD1025 /* NSURLTransformer.py in Resources */,
 				347087070F9A1A0000BD1025 /* fairy.icns in Resources */,

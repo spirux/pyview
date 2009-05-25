@@ -17,24 +17,26 @@ def exiftool_read(filenames, exiftool = 'exiftool'):
     
     # send parameters through stdin
     parameters = ['-groupNames', '-fast', '-ignoreMinorErrors', '-short', '-unknown']
+    plen = len(parameters)
     parameters.extend(filenames)
     for param in parameters:
         child.stdin.write(param + '\n')
     child.stdin.close()
     
     current = {}
-    filename = filenames[0]
+    filename = parameters[plen]
+    entries_separator = '======== '
     for line in child.stdout:
         # ignore empty lines and lines starting with space
         # such as: "    2 image files read"
         if not line or line[0].isspace():
             continue
 
-        if line.startswith('======== '):
-            # open new entry
+        if line.startswith(entries_separator):
+            # yield this entry and open new entry
             if current:
                 yield (filename, current)
-            skip = len('======== ')
+            skip = len(entries_separator)
             filename = line.strip('\n')[skip:]
             current = {}
             continue
@@ -54,6 +56,7 @@ def exiftool_read(filenames, exiftool = 'exiftool'):
         # add property to dictionary
         current[prop] = val
 
+    # Yield the last files properties
     if current:
         yield (filename, current)
 
@@ -61,10 +64,11 @@ def exiftool_read(filenames, exiftool = 'exiftool'):
     if child.returncode != 0:
         print "warning: Exiftool returned with:", child.returncode
 
-files = (r'/Users/spirux/Desktop/IMG_0814.JPG',)
-import os.path
-for file, metadata in exiftool_read(files):
-    print "-------", file, "-------"
-    for key in metadata:
-        print key, "=", metadata[key]
-        
+if __name__ == '__main__':
+    files = (r'/Users/spirux/Desktop/DSC_3702.JPG',)
+    import os.path
+    for file, metadata in exiftool_read(files):
+        print "-------", file, "-------"
+        for key in metadata:
+            print key, "=", metadata[key]
+            
